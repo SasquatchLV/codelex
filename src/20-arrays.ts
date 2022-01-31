@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * So far you've been working with numeric and textual data using JS data types - numbers
@@ -15,4 +15,9 @@ export {};
  *  - https://github.com/codelex-io/noob-exercises/tree/main/00-array-functions
  */
 
-console.log(stringToArray(["John Doe"])); // Expected output: ['John', 'Doe']
+// Fuction to make string to array
+function stringToArray(array: string[]): string[] {
+  return array[0].split(" ")
+}
+
+console.log(stringToArray(["John Doe"])) // Expected output: ['John', 'Doe']
