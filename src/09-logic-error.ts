@@ -1,9 +1,6 @@
-export {};
-
+export {}
 function multiply(a, b, c) {
-  a * b * c;
-  return;
+  return a * b * c
 }
-
-const result = multiply(1, 3, 4);
-console.log(result); // Expected output: 12
+const result = multiply(1, 3, 4)
+console.log(result) // Expected output: 12

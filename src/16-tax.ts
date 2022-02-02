@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * Let's try to use our knowledge about functions to try
@@ -13,16 +13,24 @@ export {};
  */
 
 // You are allowed to change only this function
-function calculateSalesTax() {}
+function calculateSalesTax(price: number): number {
+  var tax = price * 0.21
+  var roundedTax = tax.toFixed(2)
+  return parseFloat(roundedTax)
 
-const product = "You don't know JS";
-const price = 19.99;
-const salesTax = calculateSalesTax(price);
+  // var tax = price * 0.21
+  // var roundedTax = Math.round(tax * 100) / 100
+  // return roundedTax
+}
 
-console.log("Product: " + product);
-console.log("Price: £" + price);
-console.log("Sales tax: £" + salesTax);
-console.log("Total: £" + (price + salesTax));
+const product = "You don't know JS"
+const price = 19.99
+const salesTax = calculateSalesTax(price)
+
+console.log("Product: " + product)
+console.log("Price: £" + price)
+console.log("Sales tax: £" + salesTax)
+console.log("Total: £" + (price + salesTax))
 
 /* Expected output:
 
