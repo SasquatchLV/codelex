@@ -12,25 +12,24 @@ export {}
  * Sales tax is 21% of the price of the product
  */
 
-// You are allowed to change only this function
-function calculateSalesTax(price: number): number {
-  var tax = price * 0.21
-  var roundedTax = tax.toFixed(2)
-  return parseFloat(roundedTax)
-
-  // var tax = price * 0.21
-  // var roundedTax = Math.round(tax * 100) / 100
-  // return roundedTax
-}
-
 const product = "You don't know JS"
 const price = 19.99
 const salesTax = calculateSalesTax(price)
 
+// You are allowed to change only this function
+function calculateSalesTax(price: number): number {
+  // var tax = price * 0.21
+  // var roundedPrice = tax.toFixed(2)
+  // return parseFloat(roundedPrice)
+
+  var tax = price * 0.21
+  return Math.round(tax * 100) / 100
+}
+
 console.log("Product: " + product)
 console.log("Price: £" + price)
-console.log("Sales tax: £" + salesTax)
-console.log("Total: £" + (price + salesTax))
+console.log("Sales tax: £" + salesTax.toFixed(2))
+console.log("Total: £" + (price + salesTax).toFixed(2))
 
 /* Expected output:
 

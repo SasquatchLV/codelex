@@ -1,6 +1,6 @@
 export {}
 
-function tidyUpString(str) {
+function tidyUpString(str: string) {
   return str.trim().toLowerCase().replace("/", "")
 }
 

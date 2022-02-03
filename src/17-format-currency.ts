@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * Currency Formatting
@@ -9,20 +9,23 @@ export {};
  */
 
 // You are allowed to change only this function
-function formatCurrency() {}
-
-function calculateSalesTax(price: number) {
-  return price * 0.21;
+function formatCurrency(price: number) {
+  var roundedPrice = price.toFixed(2)
+  return "£" + roundedPrice
 }
 
-const product = "You don't know JS";
-const price = 19.99;
-const salesTax = calculateSalesTax(price);
+function calculateSalesTax(price: number) {
+  return price * 0.21
+}
 
-console.log("Product: " + product);
-console.log("Price: " + formatCurrency(price));
-console.log("Sales tax: " + formatCurrency(salesTax));
-console.log("Total: " + formatCurrency(price + salesTax));
+const product = "You don't know JS"
+const price = 19.99
+const salesTax = calculateSalesTax(price)
+
+console.log("Product: " + product)
+console.log("Price: " + formatCurrency(price))
+console.log("Sales tax: " + formatCurrency(salesTax))
+console.log("Total: " + formatCurrency(price + salesTax))
 
 /* Expected output:
 

@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * Complete the function to if passed argument satisfies the following:
@@ -8,16 +8,22 @@ export {};
  *  - is not equal any of the numbers in the array `excludedNums`
  */
 
-const excludedNums = [6, 14, 91, 111];
+const excludedNums = [6, 14, 91, 111]
 
 // You are allowed to edit only this function
-function validate(num) {}
+function validate(num: any) {
+  return (
+    typeof num === "number" &&
+    Number.isInteger(num) &&
+    !excludedNums.includes(num)
+  )
+}
 
-console.log(validate(6));
-console.log(validate(10.5));
-console.log(validate(101));
-console.log(validate(-91));
-console.log(validate("16"));
+console.log(validate(6))
+console.log(validate(10.5))
+console.log(validate(101))
+console.log(validate(-91))
+console.log(validate("16"))
 
 /* 
   Expected output:

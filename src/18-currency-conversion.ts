@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * Currency Formatting
@@ -8,14 +8,17 @@ export {};
  */
 
 // You are allowed to change only this function
-function convertToUSD() {}
+function convertToUSD(price: number) {
+  var roundedPrice = price * 1.4
+  return roundedPrice.toFixed(2)
+}
 
-const product = "You don't know JS";
-const price = 19.99;
-const priceInUSD = convertToUSD(price);
+const product = "You don't know JS"
+const price = 19.99
+const priceInUSD = convertToUSD(price)
 
-console.log("Product: " + product);
-console.log("Price: $" + priceInUSD);
+console.log("Product: " + product)
+console.log("Price: $" + priceInUSD)
 
 /* Expected output:
 
