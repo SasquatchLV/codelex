@@ -5,7 +5,7 @@ export {}
 
 **/
 
-function isBlank(inputString: string): boolean {
+function isBlank(inputString: string | any): boolean {
   return !inputString || inputString.trim().length === 0
 }
 

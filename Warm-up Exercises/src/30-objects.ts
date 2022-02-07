@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * Ah, objects...
@@ -12,14 +12,21 @@ export {};
 const books = [
   {
     title: "4 hour work week",
-    author: "Tim Ferris"
+    author: "Tim Ferris",
   },
   {
     title: "Tools of Titans",
-    author: "Tim Ferris"
-  }
-];
+    author: "Tim Ferris",
+  },
+]
 
-const getTheTitles = () => {};
+interface Book {
+  title: string
+  author: string
+}
 
-console.log(getTheTitles(books)); // Expected output: ['4 hour work week', 'Tools of Titans']
+const getTheTitles = (books: Book[]): string[] => {
+  return books.map((book) => book.title)
+}
+
+console.log(getTheTitles(books)) // Expected output: ['4 hour work week', 'Tools of Titans']

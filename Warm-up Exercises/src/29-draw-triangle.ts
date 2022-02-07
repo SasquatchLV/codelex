@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * If you find yourself stuck with this exercise, perhaps a more visual approach would help:
@@ -10,9 +10,13 @@ export {};
  * Be warned - some of the exercises there can certainly be a tough nuts to crack.
  */
 
-function draw() {}
+function draw(num: number) {
+  for (let i = 0; i <= num; i++) {
+    console.log("*".repeat(i))
+  }
+}
 
-draw(3);
+draw(3)
 /* Expected output:
 
     *
@@ -21,7 +25,7 @@ draw(3);
 
 */
 
-draw(5);
+draw(5)
 /* Expected output:
 
     *
