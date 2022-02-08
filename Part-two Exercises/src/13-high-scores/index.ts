@@ -5,22 +5,22 @@
  */
 
 class HighScores {
-  scores: number[];
+  scores: number[]
   constructor(scores: number[]) {
-    this.scores = scores;
+    this.scores = scores
   }
 
   get latest() {
-    return 0;
+    return this.scores[this.scores.length - 1]
   }
 
   get personalBest() {
-    return 0;
+    return 0
   }
 
   get personalTopThree() {
-    return 0;
+    return 0
   }
 }
 
-export { HighScores };
+export { HighScores }

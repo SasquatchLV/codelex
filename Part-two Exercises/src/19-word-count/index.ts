@@ -9,8 +9,25 @@
  *  free: 1
  */
 
-class Words {
-  count(str: string) {}
+interface Counts {
+  [key: string]: number
 }
 
-export { Words };
+class Words {
+  count(str: string) {
+    const result: Counts = {}
+    const words = str.split(" ")
+    words.forEach((word) => {
+      let count = result[word]
+      if (count) {
+        result[word] = count++
+      } else {
+        result[word] = 1
+      }
+    })
+
+    return result
+  }
+}
+
+export { Words }

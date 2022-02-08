@@ -1,4 +1,4 @@
-export {};
+export {}
 
 /**
  * The good ol' this.. Possibly the most confusing topic in the whole language
@@ -12,15 +12,14 @@ export {};
  */
 
 function Circle(radius) {
-  this.radius = radius;
-  this.area = function() {};
-  this.perimeter = function() {};
+  this.radius = radius
+  this.area = function () {}
+  this.perimeter = function () {}
 }
 
-const c = new Circle(3);
-console.log("Area =", c.area()); // Expected output: Area = 28.27
-console.log("Perimeter =", c.perimeter()); // Expected output: Perimeter = 18.85
-
+const c = new Circle(3)
+console.log("Area =", c.area()) // Expected output: Area = 28.27
+console.log("Perimeter =", c.perimeter()) // Expected output: Perimeter = 18.85
 
 /**
  * This was the last exercise in this repository.
