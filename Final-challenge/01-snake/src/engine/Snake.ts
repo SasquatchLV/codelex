@@ -1,26 +1,41 @@
-import { Cell } from "./Cell";
-import { Direction } from "./Direction";
+import { Cell } from './Cell'
+import { Direction } from './Direction'
 
 export class Snake {
-  setDirection(direction: Direction) {}
+    head: Cell = new Cell(2, 0)
+    tail: Cell[] = [new Cell(0, 0), new Cell(1, 0)]
+    direction: Direction = 'Right'
 
-  move() {}
+    setDirection(newDirection: Direction) {
+        this.direction = newDirection
+    }
 
-  grow() {}
+    move() {
+        if (this.direction === 'Right') {
+            this.head.x = this.head.x + 1
+            this.tail.forEach(cell => (cell.x = cell.x + 1))
+        }
+        if (this.direction === 'Down') {
+            this.head.y = this.head.y + 1
+            this.tail.forEach(cell => (cell.y = cell.y + 1))
+        }
+    }
 
-  getHead(): Cell {
-    return new Cell(4, 0);
-  }
+    grow() {}
 
-  getDirection(): Direction {
-    return "Right";
-  }
+    getHead(): Cell {
+        return this.head
+    }
 
-  getTail(): Cell[] {
-    return [new Cell(0, 0), new Cell(2, 0)];
-  }
+    getDirection(): Direction {
+        return this.direction
+    }
 
-  isTakenBySnake(cell: Cell): boolean {
-    return false;
-  }
+    getTail(): Cell[] {
+        return this.tail
+    }
+
+    isTakenBySnake(cell: Cell): boolean {
+        return false
+    }
 }

@@ -14,20 +14,15 @@ interface Counts {
 }
 
 class Words {
-  count(str: string) {
-    const result: Counts = {}
-    const words = str.split(" ")
-    words.forEach((word) => {
-      let count = result[word]
-      if (count) {
-        result[word] = count++
-      } else {
-        result[word] = 1
-      }
-    })
-
-    return result
+  count(str: string): Counts {
+    return str
+      .trim()
+      .toLowerCase()
+      .split(/\s+/g)
+      .reduce((countsResult, word) => {
+        countsResult[word] = (countsResult[word] || 0) + 1
+        return countsResult
+      }, {} as Counts)
   }
 }
-
 export { Words }

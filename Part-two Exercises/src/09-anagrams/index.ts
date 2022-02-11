@@ -12,6 +12,21 @@
  * anagrams('Hi there', 'Bye there') === false
  */
 
-function anagrams(stringA: string, stringB: string) {}
+// Return true of false depends on provided strings are anagrams of eachother
+function anagrams(stringA: string, stringB: string): boolean {
+    let a = stringA
+        .replace(/[^\w]/g, '')
+        .toLowerCase()
+        .split('')
+        .sort()
+        .join('')
+    let b = stringB
+        .replace(/[^\w]/g, '')
+        .toLowerCase()
+        .split('')
+        .sort()
+        .join('')
+    return a === b
+}
 
-export { anagrams };
+export { anagrams }

@@ -9,6 +9,14 @@
  * vowels('Hello there!') === 4
  */
 
-function vowels(s: string) {}
+// Write a function which returns number of vowels in given string.
+function vowels(s: string): number {
+    let vowels = s.match(/[aeiou]/gi)
+    if (vowels === null) {
+        return 0
+    } else {
+        return vowels.length
+    }
+}
 
-export { vowels };
+export { vowels }

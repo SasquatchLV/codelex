@@ -12,6 +12,14 @@
  * reverseInt(-90) === -9
  */
 
-function reverse(int: number) {}
+// return an integer that is the reverse ordering of numbers without zeros
+function reverse(int: number): number {
+    let reversedInt = int.toString().split('').reverse().join('')
+    let result = parseInt(reversedInt)
+    if (int < 0) {
+        result = result * -1
+    }
+    return result
+}
 
-export { reverse };
+export { reverse }

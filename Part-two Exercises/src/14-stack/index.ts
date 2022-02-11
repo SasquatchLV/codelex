@@ -15,11 +15,20 @@
  */
 
 class Stack {
-  push(n: number) {}
+    stack: number[] = []
 
-  pop() {}
+    push(n: number) {
+        return this.stack.push(n)
+    }
 
-  peek() {}
+    pop() {
+        return this.stack.pop()
+    }
+
+    peek() {
+        let output = this.stack[this.stack.length - 1]
+        return output
+    }
 }
 
-export { Stack };
+export { Stack }

@@ -1,27 +1,33 @@
-export type XO = "X" | "O" | "-";
+export type XO = 'X' | 'O' | '-'
 
 export class Game {
-  getCells(): XO[] {
-    return ["X", "-", "-", "-", "-", "-", "-", "-", "-"];
-  }
+    cells: XO[] = ['-', '-', '-', '-', '-', '-', '-', '-', '-']
+    turn: XO = 'X'
+    getCells(): XO[] {
+        return this.cells
+    }
 
-  getTurn(): XO {
-    return "X";
-  }
+    getTurn(): XO {
+        const countO = this.cells.filter(cell => cell === 'O').length
+        const countX = this.cells.filter(cell => cell === 'X').length
+        return countX === countO ? 'X' : 'O'
+    }
 
-  getWinner(): XO {
-    return "-";
-  }
+    getWinner(): XO {
+        return '-'
+    }
 
-  isTie(): boolean {
-    return false;
-  }
+    isTie(): boolean {
+        return false
+    }
 
-  onClick(i: number): void {
-    console.log(`cell ${i} clicked`);
-  }
+    onClick(i: number): void {
+        if (this.cells[i] === '-') {
+            this.cells[i] = this.getTurn()
+        }
+    }
 
-  restart(): void {
-    console.log("restart called");
-  }
+    restart(): void {
+        console.log('restart called')
+    }
 }

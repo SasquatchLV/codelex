@@ -10,6 +10,9 @@
  * reverse('Greetings!') === '!sgniteerG'
  */
 
-function reverse(str: string) {}
+// For given string return a new string with the reversed order of characters.
+function reverse(str: string): string {
+    return str.split('').reverse().join('')
+}
 
-export { reverse };
+export { reverse }

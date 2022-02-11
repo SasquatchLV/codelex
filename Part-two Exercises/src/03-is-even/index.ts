@@ -10,6 +10,12 @@
  * isEven(3) === false
  */
 
-function isEven(n: number) {}
+function isEven(n: number) {
+    // The idea is to start with a boolean flag variable as true and switch it n times. If flag variable gets original value (which is true) back, then n is even. Else n is false.
 
-export { isEven };
+    let isEven = true
+    for (let i = 1; i <= n; i++) isEven = !isEven
+    return isEven
+}
+
+export { isEven }

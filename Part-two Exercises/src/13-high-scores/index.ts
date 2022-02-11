@@ -5,22 +5,30 @@
  */
 
 class HighScores {
-  scores: number[]
-  constructor(scores: number[]) {
-    this.scores = scores
-  }
+    scores: number[]
+    constructor(scores: number[]) {
+        this.scores = scores
+    }
 
-  get latest() {
-    return this.scores[this.scores.length - 1]
-  }
+    get latest() {
+        return this.scores[this.scores.length - 1]
+    }
 
-  get personalBest() {
-    return 0
-  }
+    // Get personal best score from the list
+    get personalBest() {
+        let personalBest = 0
+        this.scores.forEach((score) => {
+            if (score > personalBest) {
+                personalBest = score
+            }
+        })
+        return personalBest
+    }
 
-  get personalTopThree() {
-    return 0
-  }
+    get personalTopThree() {
+        let topThree: number[] = this.scores.sort((a, b) => b - a).slice(0, 3)
+        return topThree
+    }
 }
 
 export { HighScores }
