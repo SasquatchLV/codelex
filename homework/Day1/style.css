@@ -1,0 +1,75 @@
+* {
+  box-sizing: border-box;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Lato&display=swap");
+
+.button {
+  font-family: "ABeeZee";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+  background-color: #017187;
+  padding: 20px 40px;
+  border-radius: 8px;
+  color: #ffffff;
+  border: 2px solid #017187;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.button--secondary {
+  background-color: transparent;
+  color: #017187;
+}
+
+.button:hover {
+  background-color: #67aab7;
+  border-color: #67aab7;
+}
+
+.button--secondary:hover {
+  background-color: transparent;
+  border-color: #67aab7;
+  color: #67aab7;
+}
+
+.toast {
+  margin-top: 5rem;
+  display: flex;
+  align-items: center;
+  background-color: #404040;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+  max-height: 44px;
+  padding: 12px 16px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  fill: currentColor;
+  color: #fff;
+}
+
+.toast svg {
+  color: #fff;
+}
+
+.toast__message {
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.26px;
+}
+
+.toast--success {
+  background: transparent;
+  border: 1px solid #f1f1f1;
+  color: #1fc24e;
+}
+
+.toast--success svg {
+  color: #9d9d9d;
+}
