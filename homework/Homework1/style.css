@@ -604,8 +604,6 @@ select {
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  flex-shrink: 0;
-  flex-wrap: no-wrap;
   width: max-content;
   max-width: 575px;
   background-color: #404040;
