@@ -600,11 +600,10 @@ select {
 }
 
 .toast-action {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 24px;
-  width: max-content;
   max-width: 575px;
   background-color: #404040;
   border: 1px solid #404040;
@@ -648,9 +647,5 @@ select {
     grid-template-areas:
       "first"
       "second";
-  }
-
-  .toast-action {
-    width: auto;
   }
 }
