@@ -403,7 +403,7 @@ select {
 }
 
 .btn-six:disabled,
-.btn-sic[disabled] {
+.btn-six[disabled] {
   background-color: #b4b4b4;
   border: 1px solid #b4b4b4;
   cursor: not-allowed;

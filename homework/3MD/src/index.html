@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="icon" href="/favicon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="/styles.css" />
+    <title>3MD: Flexbox, CSS grid un media queries</title>
+  </head>
+  <body>
+    <header>
+      <div class="hero-header">
+        <div class="hero-header__container">
+          <div class="hero-header__logo">
+            Ketija ir awesome, Jānis arī ir ok
+          </div>
+          <div class="hero-header__nav">
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Portfolio</a>
+              <a href="#">Blogs</a>
+              <a href="#">Contact</a>
+            </nav>
+          </div>
+        </div>
+        <div class="hero-header__content">
+          <span>Creative Agency</span>
+          <h1>HERO HEADER</h1>
+          <p>The best in town.</p>
+        </div>
+      </div>
+    </header>
+    <section>
+      <div class="container">
+        <div class="title-underlined">Colors</div>
+      </div>
+
+      <div class="container gap-24">
+        <div class="box box--black-900"></div>
+        <div class="box box--black-800"></div>
+        <div class="box box--black-700"></div>
+        <div class="box box--black-300"></div>
+        <div class="box box--black-200"></div>
+        <div class="box box--black-100"></div>
+      </div>
+      <div class="container justify-between gap-24">
+        <div class="col-30 gap-24">
+          <div class="box box--purple-900"></div>
+          <div class="box box--purple-800"></div>
+          <div class="box box--purple-100"></div>
+          <div class="box box--teal-900"></div>
+          <div class="box box--teal-800"></div>
+          <div class="box box--teal-100"></div>
+          <div class="box box--orange-900"></div>
+          <div class="box box--orange-800"></div>
+          <div class="box box--orange-100"></div>
+          <div class="box box--pink-900"></div>
+          <div class="box box--pink-800"></div>
+          <div class="box box--pink-100"></div>
+        </div>
+        <div class="box box--big"></div>
+      </div>
+      <div class="container justify-between gap-24 align-center">
+        <div class="flex gap-24">
+          <div class="box box--pastel-green"></div>
+          <div class="box box--pastel-blue"></div>
+        </div>
+        <div class="flex gap-24">
+          <div class="box box--peach"></div>
+          <div class="box box--peach-light"></div>
+        </div>
+        <div class="flex gap-24">
+          <div class="box box--cotton-candy"></div>
+          <div class="box box--cyan"></div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container"><div class="title">Selected works</div></div>
+      <div class="container">
+        <div class="portfolio">
+          <a href="#"
+            ><img
+              src="https://source.unsplash.com/random/350x350/?technology"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img
+              src="https://source.unsplash.com/random/350x350/?technology"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img
+              src="https://source.unsplash.com/random/350x350/?technology"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img
+              src="https://source.unsplash.com/random/350x350/?technology"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img
+              src="https://source.unsplash.com/random/350x350/?technology"
+              alt=""
+          /></a>
+          <a href="#"
+            ><img
+              src="https://source.unsplash.com/random/350x350/?technology"
+              alt=""
+          /></a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container direction-column align-end gap-32">
+        <button type="button" class="btn-subscribe">Subscription</button>
+        <button type="button" class="btn-subscribe btn-subscribe--outline">
+          Subscription
+        </button>
+        <button type="button" class="btn-subscribe btn-subscribe--naked">
+          Subscription
+        </button>
+      </div>
+      <div class="container justify-center">
+        <div class="card">
+          <div class="card__header">
+            <div class="card__header-title">
+              <h3>Freelance Version</h3>
+            </div>
+            <div class="card__header-subtitle">
+              <h2>Free</h2>
+            </div>
+          </div>
+          <div class="card__content">
+            <ul>
+              <li>First option</li>
+              <li>Second option</li>
+              <li>Third option</li>
+              <li>Fourth option</li>
+              <li>Fifth option</li>
+            </ul>
+          </div>
+          <div class="card__footer">
+            <button>Subscribe</button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer">
+        <div class="footer__container">
+          <div class="footer__nav">
+            <nav>
+              <a href="#">Home</a>
+              <a href="#">About</a>
+              <a href="#">Portfolio</a>
+              <a href="#">Blogs</a>
+              <a href="#">Contact</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="/scripts.js"></script>
+  </body>
+</html>
