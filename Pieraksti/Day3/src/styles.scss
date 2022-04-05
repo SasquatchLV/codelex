@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+body {
+  margin: 0;
+  background-color: #2a3342;
+  font-family: "Poppins", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.form {
+  background-color: #f7f8f9;
+  display: flex;
+  flex-flow: column;
+  row-gap: 32px;
+  padding: 40px;
+  max-width: 945px;
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(85, 105, 135, 0.1);
+}
+
+.form__row {
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.form__row--2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form__row--3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.form__summary {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form__btn {
+  background-color: #22c55e;
+  border: 1px solid #22c55e;
+  box-shadow: 0 1px 2px rgba(105, 81, 255, 0.05);
+  border-radius: 6px;
+  padding: 11px;
+  font-size: 16px;
+  line-height: 24px;
+  color: #f0fdf4;
+  outline: none;
+}
+
+.label {
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.input {
+  background-color: #ffffff;
+  font-size: 16px;
+  line-height: 24px;
+  width: 100%;
+  display: inline-block;
+  padding: 11px 14px;
+  border: 1px solid #d5dae1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+}
+
+::placeholder {
+  color: #bbc3cf;
+}
+
+.input--credit-card {
+  display: grid;
+  grid-template-columns: 1fr 60px 60px;
+}
+
+.input__blank {
+  border: none;
+}
+
+.subtotal-container {
+  display: flex;
+  flex-flow: column;
+  row-gap: 15px;
+}
