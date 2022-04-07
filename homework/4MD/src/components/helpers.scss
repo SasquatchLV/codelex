@@ -2,7 +2,7 @@
 
 .form__row {
   display: grid;
-  grid-template-columns: 100%;
+  grid-template-columns: 1fr;
   justify-content: space-between;
 }
 
@@ -10,9 +10,13 @@
   grid-template-columns: 1fr 1fr;
 }
 
+.form__row--checkout {
+  grid-template-columns: 1fr 1fr;
+}
+
 .form__contact-container {
   display: grid;
-  grid-template-columns: 35% 65%;
+  grid-template-columns: 1fr 1fr;
   grid-template-areas: "left right";
   background-color: var(--color-primary);
   max-width: 665px;
@@ -20,6 +24,14 @@
   margin: 30px auto;
   border-radius: 10px;
   box-shadow: 40px 40px 60px rgba(0, 0, 0, 0.1);
+}
+
+.form__contact-container--35-65 {
+  grid-template-columns: 35% 65%;
+}
+
+.form__contact-container--full {
+  grid-template-columns: 1fr;
 }
 
 .left {
@@ -74,6 +86,10 @@
   padding: 16px;
 }
 
+.padding--32 {
+  padding: 32px;
+}
+
 .padding-bottom--16 {
   padding-bottom: 16px;
 }
@@ -118,7 +134,11 @@
   }
 
   .form__contact-container {
-    grid-template-columns: 100%;
+    grid-template-columns: 1fr;
     grid-template-areas: "right";
+  }
+
+  .place-items--end {
+    place-items: stretch;
   }
 }

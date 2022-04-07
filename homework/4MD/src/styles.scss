@@ -47,6 +47,10 @@ body {
   margin-bottom: 4px;
 }
 
+.label--checkout {
+  font-size: 20px;
+}
+
 .input {
   background-color: #fafafa;
   border: none;
@@ -137,7 +141,7 @@ body {
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  padding: 12px 75px;
+  padding: 12px 48px;
   background-color: var(--color-accent);
   border: 1px solid var(--color-accent);
   border-radius: 5px;
@@ -152,6 +156,7 @@ body {
 }
 
 .button--naked {
+  padding: 12px 75px;
   background-color: var(--button--naked-bg);
   border-color: var(--button--naked-border);
 
@@ -166,4 +171,18 @@ body {
   height: 2px;
   background-color: #ececee;
   border-radius: 10px;
+}
+
+.divider--checkout {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .button {
+    width: 100%;
+  }
+
+  .divider--checkout {
+    display: block;
+  }
 }

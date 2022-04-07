@@ -116,7 +116,7 @@
     <!-- Contact form 1-->
 
     <form class="form m-width--665">
-      <div class="form__row padding-bottom--32">
+      <div class="form__row padding-bottom--16">
         <h1>Contact Us</h1>
       </div>
       <div class="form__row form__row--2 gap--16">
@@ -189,7 +189,7 @@
     <!-- /Contact form 1-->
 
     <!-- Contact form 2-->
-    <div class="form__contact-container">
+    <div class="form__contact-container form__contact-container--35-65">
       <div class="left flex flex-direction--column gap--16">
         <p class="padding-bottom--16">Contact Information</p>
         <p class="padding-bottom--16">Here’s some additional support text to help set user expectations. </p>
@@ -204,7 +204,7 @@
 
       </div>
       <div class="right flex flex-direction--column gap--16">
-        <div class="form__row padding-bottom--32">
+        <div class="form__row padding-bottom--16">
           <h1>Contact Us</h1>
         </div>
         <div class="form__row form__row--2 gap--16">
@@ -277,6 +277,97 @@
     </div>
       </div>
     </div>
+
+    <!-- /Contact form 2-->
+
+
+
+    <!-- Checkout form --> 
+
+    <form class="form m-width--665">
+      <div class="form__row padding-bottom--16">
+        <h1>Checkout</h1>
+      </div>
+      <div class="form__row form__row--2 gap--16 padding-bottom--16">
+        <div>
+          <div class="form__row padding-bottom--16">
+            <label class="label label--checkout">Your Order</label>
+          </div>
+          
+          <div class="flex flex-direction--column">
+            <label class="label">Eggshell Plant Pot</label>
+            <p>Size: Medium</p>
+            <p>Qty: 1</p>
+            <p>$25.00</p>
+          </div>
+        </div>
+        <div class="divider divider--checkout"></div>
+        <div>
+          <div class="form__row padding-bottom--16">
+            <label class="label label--checkout">Delivery Details</label>
+          </div>
+          <div class="form__row form__row--2 gap--16">
+            <div class="flex flex-direction--column">
+              <label class="label">Adam Sandler</label>
+              <p>1234 Fake St</p>
+              <p>Milwaukee, WI 53203</p>
+            </div>
+            <div class="flex flex-direction--column">
+              <label class="label">Shipping Speed</label>
+              <p>$7.00 No Rush Shipping</p>
+              <p>Arrives by 1/16/22</p> 
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form__row padding-bottom--16">
+        <h1>Payment Method</h1>
+      </div>
+
+      <div class="form__row form__row--2 gap--16 padding-bottom--16">
+        <div>
+          <label for="card-number" class="label">Card Number</label>
+          <input
+            type="number"
+            class="input"
+            id="card-number"
+            placeholder="XXXX-XXXX-XXXX" 
+            required
+          />
+        </div>
+        <div>
+          <div class="form__row form__row--checkout gap--16">
+            <div>
+              <label for="expiry" class="label">Expiry Date</label>
+              <input
+              type="text"
+              class="input"
+              id="expiry"
+              placeholder="MM/YY"
+              required
+            />
+            </div>
+            <div>
+              <label for="cvc" class="label">CVC</label>
+              <input
+              type="number"
+              class="input"
+              id="cvc"
+              placeholder="123"
+              required
+            />
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="form__row place-items--end">
+        <div>
+            <button class="button">Continue</button> 
+        </div>
+      </div>
+    </form>
 
 
     <script type="text/javascript">
