@@ -1,0 +1,124 @@
+// --------- Rows ---------
+
+.form__row {
+  display: grid;
+  grid-template-columns: 100%;
+  justify-content: space-between;
+}
+
+.form__row--2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+.form__contact-container {
+  display: grid;
+  grid-template-columns: 35% 65%;
+  grid-template-areas: "left right";
+  background-color: var(--color-primary);
+  max-width: 665px;
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 40px 40px 60px rgba(0, 0, 0, 0.1);
+}
+
+.left {
+  border-radius: 10px 0 0 10px;
+  background-color: var(--color-accent);
+  padding: 46px 16px 32px 16px;
+  grid-area: left;
+}
+
+.left p {
+  color: #fff;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+}
+
+.left p svg {
+  color: #fff;
+  fill: currentColor;
+  width: 20px;
+  height: 20px;
+}
+
+.right {
+  padding: 32px 16px 32px 32px;
+  grid-area: right;
+}
+
+.form__row--place-center {
+  place-items: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-direction--column {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.place-items--end {
+  place-items: end;
+}
+
+// --------- Utils ---------
+.padding--16 {
+  padding: 16px;
+}
+
+.padding-bottom--16 {
+  padding-bottom: 16px;
+}
+
+.padding-top--16 {
+  padding-top: 16px;
+}
+
+.padding-bottom--32 {
+  padding-bottom: 32px;
+}
+
+.gap--8 {
+  gap: 8px;
+}
+
+.gap--16 {
+  gap: 16px;
+}
+
+.m-width--665 {
+  max-width: 665px;
+}
+
+.width--100 {
+  width: 100%;
+}
+
+// --------- Text ---------
+
+.text--center {
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  .form__row--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .form__contact-container {
+    grid-template-columns: 100%;
+    grid-template-areas: "right";
+  }
+}

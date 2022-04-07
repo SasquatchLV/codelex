@@ -3,15 +3,11 @@
     "outDir": "./dist/",
     "noImplicitAny": true,
     "module": "es6",
-    "target": "es5",
+    "target": "es6",
     "downlevelIteration": true,
     "jsx": "react",
     "allowJs": true,
     "moduleResolution": "node",
-    "lib": [
-      "es2019",
-      "dom",
-      "dom.iterable"
-    ]
+    "lib": ["es2019", "dom", "dom.iterable"]
   }
 }

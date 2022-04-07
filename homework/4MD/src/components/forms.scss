@@ -1,0 +1,39 @@
+.form {
+  background-color: var(--color-primary);
+  display: flex;
+  flex-flow: column;
+  padding: 32px;
+  max-width: 428px;
+  width: 100%;
+  margin: 30px auto;
+  border-radius: 10px;
+  box-shadow: 40px 40px 60px rgba(0, 0, 0, 0.1);
+  gap: 16px;
+}
+
+.form h1,
+.form__contact-container h1 {
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 40px;
+  letter-spacing: -0.02em;
+}
+
+.form a,
+.form__contact-container a {
+  color: var(--color-accent-2);
+  text-decoration-line: underline;
+}
+
+.form svg,
+.form__contact-container svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--icon-color);
+}
+
+.form textarea,
+.form__contact-container textarea {
+  min-height: 100px;
+  resize: vertical;
+}
