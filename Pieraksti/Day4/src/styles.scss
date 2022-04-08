@@ -1,0 +1,69 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import "./components/reset.scss";
+
+body {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #556987;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding-top: 88px;
+  padding-bottom: 95px;
+}
+
+.heading__subtitle {
+  padding: 2px 8px;
+  color: #22c55e;
+  background-color: #dcfce7;
+  box-shadow: 0px 1px 2px rgba(105, 81, 255, 0.05);
+  border-radius: 36px;
+}
+
+.heading__title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60px;
+  text-align: center;
+  letter-spacing: -0.02em;
+  color: #1c232d;
+}
+
+.heading__text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  text-align: center;
+  color: #556987;
+}
+
+.card__shield {
+  background-color: #22c55e;
+  width: 48px;
+  height: 48px;
+  border: 6px solid #ffffff;
+}
+
+.box {
+  width: 100%;
+  background-color: #f7f8f9;
+  box-shadow: 0px 1px 2px rgba(85, 105, 135, 0.1);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  padding: 32px;
+}
+
+.box__heading {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 30px;
+  color: #2a3342;
+}
