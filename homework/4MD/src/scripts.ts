@@ -1,25 +1,29 @@
-// // function to set a given theme/color-scheme
-// export function setTheme(themeName: string) {
-//   localStorage.setItem("theme", themeName)
-//   document.documentElement.className = themeName
-// }
+const switchButton = document.querySelector("#switch")
 
-// // function to toggle between light and dark theme
-// export function toggleTheme() {
-//   if (localStorage.getItem("theme") === "theme-dark") {
-//     setTheme("theme-light")
-//   } else {
-//     setTheme("theme-dark")
-//   }
-// }
+// function to set a given theme/color-scheme
+export function setTheme(themeName: string) {
+  localStorage.setItem("theme", themeName)
+  document.documentElement.className = themeName
+}
 
-// // Immediately invoked function to set the theme on initial load
-// ;(function () {
-//   if (localStorage.getItem("theme") === "theme-dark") {
-//     setTheme("theme-dark")
-//   } else {
-//     setTheme("theme-light")
-//   }
-// })()
+// function to toggle between light and dark theme
+export function toggleTheme() {
+  if (localStorage.getItem("theme") === "theme-dark") {
+    setTheme("theme-light")
+  } else {
+    setTheme("theme-dark")
+  }
+}
 
-// console.log("Hello World")
+// Immediately invoked function to set the theme on initial load
+;(function () {
+  if (localStorage.getItem("theme") === "theme-dark") {
+    setTheme("theme-dark")
+  } else {
+    setTheme("theme-light")
+  }
+})()
+
+switchButton.addEventListener("click", () => {
+  toggleTheme()
+})
