@@ -122,38 +122,71 @@
 //   return reversedFruit
 // })
 
+// Task #-4
+// car[1].name // Volvo
+
+const car = [
+  {},
+  {
+    name: "Volvo",
+  },
+]
+
+console.log(car[1].name)
+
+// Task #-3
+// car.sum() // return 3000000EUR
+
+const car1 = {
+  sum: () => {
+    return "3000000EUR"
+  },
+}
+
+console.log(car1.sum())
+
+// Task #-2
+// car.model.color // returns red
+
+const car2 = {
+  model: {
+    color: "red",
+  },
+}
+
+console.log(car2.model.color)
+
+// Task #-1
+// Make an object which fruit[0][1]; // returns 'Apple'
+
+const fruit = [[[], ["Apple"]]]
+
+console.log(fruit[0][1])
+
+// Task #0
+// human.name('Jānis') // returns Jānis
+
+const human = {
+  name: (name: string) => name,
+}
+
+console.log(human.name("Jānis"))
+
+// Tasks #1
 // math.sum()()(1,3).sum // return 13
 
-// const sum = (x: number, y: number) => {
-//   const result = x.toString() + y.toString()
-//   return parseInt(result)
-// }
+const math = {
+  sum: () => () => (number1: number, number2: number) => ({
+    sum: Number(`${number1}${number2}`),
+  }),
+}
 
-// const math: any = {
-//   sum: () => {
-//     return () => {
-//       return (x: number, y: number) => {
-//         return sum(x, y)
-//       }
-//     }
-//   },
-// }
+console.log(math.sum()()(1, 3).sum)
 
-// console.log(math.sum()()(1, 3))
-
-// const math = {
-//   sum: () => () => (number1: number, number2: number) => ({
-//     sum: Number(`${number1}${number2}`),
-//   }),
-// }
-
-// console.log(math.sum()()(1, 3).sum)
-
-
+// Task #2
 // human().rights[2][1].amendment[2].paragraph() // 'Lorem Ipsum'
 
-//@ts-ignore
-const human = () => ({
+const human1 = () => ({
   rights: [
     [],
     [],
@@ -172,6 +205,18 @@ const human = () => ({
   ] as any,
 })
 
+console.log(human1().rights[2][1].amendment[2].paragraph())
 
+// Task #3
+// returns powered x with y and sum powered by Z
+// math(x, y)()()()()()()()()(z) //
 
-console.log(human().rights[2][1].amendment[2].paragraph())
+// Task #4
+// Take animal array from
+// https://gist.github.com/borlaym/585e2e09dd6abd9b0d0a
+// Filter out Animals with letters "A" "Z" "U" "G" and capitalize it
+
+// Task #5
+// take array from https://stackoverflow.com/a/20623472/2927424
+// filter out countries that have less than 6 characters
+// modify array without nativeName key
