@@ -359,3 +359,5 @@ const removeFirstThreeArr = (a: string[] | number[]): string[] | number[] => {
 console.log(removeFirstThreeArr([1, 2, 3, 4])) // 4
 console.log(removeFirstThreeArr([5, 4, 3, 2, 1, 0])) // 2 1 0
 console.log(removeFirstThreeArr([99, 1, 1])) // []
+
+
