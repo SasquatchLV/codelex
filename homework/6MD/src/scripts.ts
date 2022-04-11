@@ -281,7 +281,81 @@ const isAPrime = (a: number): number => {
   return a
 }
 
-console.log(isAPrime(38))
-console.log(isAPrime(7))
-console.log(isAPrime(115))
-console.log(isAPrime(2000))
+console.log(isAPrime(38)) // 41
+console.log(isAPrime(7)) // 7
+console.log(isAPrime(115)) // 127
+console.log(isAPrime(2000)) // 2003
+
+// Write a function that takes two numbers, say x and y, as arguments
+// Check if x is divisible by y
+// If yes, return x
+// If not, return the next higher natural number that is divisible by y
+
+const isDivisible = (x: number, y: number): number => {
+  return x % y === 0 ? x : isDivisible(x + 1, y)
+}
+
+console.log(isDivisible(1, 23)) // 23
+console.log(isDivisible(23, 23)) // 23
+console.log(isDivisible(7, 3)) // 9
+console.log(isDivisible(-5, 7)) // 0
+
+// Write a function that takes two strings (a and b) as arguments
+// Beginning at the end of 'a', insert 'b' after every 3rd character of 'a'
+// Return the resulting string
+
+const uselessString = (a: string, b: string): string => {
+  const uselessArr = a.split("")
+  for (let i = uselessArr.length - 3; i >= 0; i -= 3) {
+    uselessArr.splice(i, 0, b)
+  }
+  return uselessArr.join("")
+}
+
+console.log(uselessString("1234567", ".")) // '1.234.567'
+console.log(uselessString("abcde", "$")) // 'ab$cde'
+console.log(uselessString("zxyzxyzxyzxyzxyz", "w")) // 'zwxyzwxyzwxyzwxyzwxyz'
+
+// Write a function that takes a string as argument
+// As it is, the string has no meaning
+// Increment each letter to the next letter in the alphabet
+// Return the correct word
+
+const nextToCharacter = (a: string): string => {
+  let newString = ""
+  for (let i = 0; i < a.length; i++) {
+    if (a[i] === "z") {
+      newString += "a"
+    } else {
+      newString += String.fromCharCode(a.charCodeAt(i) + 1)
+    }
+  }
+  return newString
+}
+
+console.log(nextToCharacter("bnchmf")) // coding
+console.log(nextToCharacter("bgddrd")) // cheese
+console.log(nextToCharacter("sdrshmf")) // testing
+
+// Write a function that takes an array (a) and a value (n) as argument
+// Return the nth element of 'a'
+
+const nthElement = (a: number[], n: number): number => {
+  return a[n - 1]
+}
+
+console.log(nthElement([1, 2, 3, 4, 5], 3)) // 3
+console.log(nthElement([10, 9, 8, 7, 6], 5)) // 6
+console.log(nthElement([7, 2, 1, 6, 3], 1)) // 7
+
+// Write a function that takes an array (a) as argument
+// Remove the first 3 elements of 'a'
+// Return the result
+
+const removeFirstThreeArr = (a: string[] | number[]): string[] | number[] => {
+  return a.slice(3)
+}
+
+console.log(removeFirstThreeArr([1, 2, 3, 4])) // 4
+console.log(removeFirstThreeArr([5, 4, 3, 2, 1, 0])) // 2 1 0
+console.log(removeFirstThreeArr([99, 1, 1])) // []
