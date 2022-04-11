@@ -242,6 +242,46 @@ const splitNumber = (a: number): number[] => {
   return a.toString().split("").map(Number)
 }
 
-console.log(splitNumber(10))
-console.log(splitNumber(931))
-console.log(splitNumber(193278))
+console.log(splitNumber(10)) // [1,0]
+console.log(splitNumber(931)) // [9,3,1]
+console.log(splitNumber(193278)) // [1,9,3,2,7,8]
+
+// It seems like something happened to these strings
+// Can you figure out how to clear up the chaos?
+// Write a function that joins these strings together such that they form the following words:
+// 'Javascript', 'Countryside', and 'Downtown'
+// You might want to apply basic JS string methods such as replace(), split(), slice() etc.
+
+const replaceAndReverse = (a: string, b: string): string => {
+  let cleanStringA = a.replace(/[^a-zA-Z]/g, "")
+  let cleanStringB = b
+    .replace(/[^a-zA-Z]/g, "")
+    .split("")
+    .reverse()
+    .join("")
+
+  return cleanStringA[0].toUpperCase() + cleanStringA.slice(1) + cleanStringB
+}
+
+console.log(replaceAndReverse("java", "tpi%rcs"))
+console.log(replaceAndReverse("c%ountry", "edis"))
+console.log(replaceAndReverse("down", "nw%ot"))
+
+// This challenge is a little bit more complex
+// Write a function that takes a number (a) as argument
+// If a is prime, return a
+// If not, return the next higher prime number
+
+const isAPrime = (a: number): number => {
+  for (let i = 2; i < a; i++) {
+    if (a % i === 0) {
+      return isAPrime(a + 1)
+    }
+  }
+  return a
+}
+
+console.log(isAPrime(38))
+console.log(isAPrime(7))
+console.log(isAPrime(115))
+console.log(isAPrime(2000))
