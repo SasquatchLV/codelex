@@ -1,0 +1,14 @@
+@import "components/css/reset.scss";
+
+.hidden {
+  display: none;
+}
+
+.box {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  background-color: #fafafa;
+  margin-bottom: 20px;
+  border: 5px solid black;
+}
