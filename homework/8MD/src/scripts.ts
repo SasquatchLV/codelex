@@ -103,12 +103,12 @@ allBoxes[4].addEventListener("mouseenter", () => {
     if (number === 10) {
       clearInterval(interval)
     }
-
-    allBoxes[4].onmouseout = () => {
-      clearInterval(interval)
-      allBoxes[4].innerText = "0"
-    }
   }, 1000)
+
+  allBoxes[4].onmouseout = () => {
+    clearInterval(interval)
+    allBoxes[4].innerText = "0"
+  }
 })
 
 const inputEL = document.querySelector<HTMLInputElement>(".input")
