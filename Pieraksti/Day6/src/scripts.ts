@@ -41,3 +41,58 @@ boxButtonEl.forEach((button: HTMLButtonElement) => {
     })
   })
 })
+
+// uztaisam divas pogas + un -, kā arī elementu kurš rādīs skaitli. Sākumā skaitlis ir 0, kad spiežam pogu + tad palielinās par vienus un ja mīnusu tad samazinās par viens
+// Bonuss: pieliekam pogas dalīts ar divi un reizināts ar divi
+// Bonuss2: Varam peilikt pogas ar citām matemātiskajām darbībām
+
+const boxDisplay = document.querySelector<HTMLDivElement>(".box-display")
+const buttonAdd = document.querySelector<HTMLButtonElement>(".box--plus")
+const buttonMinus = document.querySelector<HTMLButtonElement>(".box--minus")
+
+buttonAdd.addEventListener("click", () => {
+  boxDisplay.innerText = (parseInt(boxDisplay.innerHTML) + 1).toString()
+})
+
+buttonMinus.addEventListener("click", () => {
+  boxDisplay.innerText = (parseInt(boxDisplay.innerHTML) - 1).toString()
+})
+
+const buttonChangeColor = document.querySelector<HTMLButtonElement>(
+  ".button-change-color"
+)
+const boxColor = document.querySelector<HTMLDivElement>(".box-color")
+
+// Randomize color from array, but so it is not the same color as the previous one
+
+buttonChangeColor.addEventListener("click", () => {
+  const getRandomColor = () => {
+    const possibleColors = [
+      "red",
+      "yellow",
+      "green",
+      "blue",
+      "chocolate",
+      "purple",
+      "orange",
+      "orange",
+    ]
+
+    return possibleColors[Math.floor(Math.random() * possibleColors.length)]
+  }
+
+  const setRandomColor = () => {
+    let currentColor = boxColor.style.backgroundColor
+    let randomColor = getRandomColor()
+
+    while (randomColor === currentColor) {
+      randomColor = getRandomColor()
+    }
+
+    boxColor.style.backgroundColor = randomColor
+  }
+
+  setRandomColor()
+})
+
+document.body.style.backgroundColor = "#000000"
