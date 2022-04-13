@@ -1,6 +1,8 @@
 const allButtons = document.querySelectorAll<HTMLButtonElement>(".button")
 const allBoxes = document.querySelectorAll<HTMLDivElement>(".box")
 
+/* ----- Task 1 ----- */
+
 allButtons[0].addEventListener("click", () => {
   const backgroundColor = allBoxes[0].style.backgroundColor
   if (backgroundColor === "yellow") {
@@ -19,13 +21,19 @@ allButtons[1].addEventListener("click", () => {
   }
 })
 
+/* ----- Task 2 ----- */
+
 allButtons[2].addEventListener("click", () => {
   allBoxes[2].classList.add("hidden")
 })
 
+/* ----- Task 3 ----- */
+
 allButtons[3].addEventListener("click", () => {
   allBoxes[3].classList.toggle("hidden")
 })
+
+/* ----- Task 4 ----- */
 
 allButtons[4].addEventListener("click", () => {
   const getRandomColor = () => {
@@ -57,6 +65,8 @@ allButtons[4].addEventListener("click", () => {
   setRandomColor()
 })
 
+/* ----- Task 5 ----- */
+
 allButtons[5].addEventListener("click", () => {
   let number = 0
   const interval = setInterval(() => {
@@ -67,6 +77,8 @@ allButtons[5].addEventListener("click", () => {
     }
   }, 3000)
 })
+
+/* ----- Task 6 ----- */
 
 allButtons[6].addEventListener("click", () => {
   const backgroundColor = window
@@ -86,6 +98,8 @@ allButtons[6].addEventListener("click", () => {
   }
 })
 
+/* ----- Task 7 ----- */
+
 allBoxes[0].addEventListener("mouseenter", () => {
   allBoxes[0].style.backgroundColor = "#FF0000"
 })
@@ -94,11 +108,13 @@ allBoxes[0].addEventListener("mouseleave", () => {
   allBoxes[0].style.backgroundColor = "#1fc2ae"
 })
 
+/* ----- Task 8 ----- */
+
 allBoxes[4].addEventListener("mouseenter", () => {
   let number = 0
 
   const interval = setInterval(() => {
-    number++
+    number += 1
     allBoxes[4].innerText = number.toString()
     if (number === 10) {
       clearInterval(interval)
@@ -110,6 +126,8 @@ allBoxes[4].addEventListener("mouseenter", () => {
     allBoxes[4].innerText = "0"
   }
 })
+
+/* ----- Task 9 ----- */
 
 const inputEL = document.querySelector<HTMLInputElement>(".input")
 const inputTextEl = document.querySelector<HTMLSpanElement>(".input-text")
