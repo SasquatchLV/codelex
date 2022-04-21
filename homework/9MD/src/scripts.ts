@@ -10,7 +10,13 @@ const footer = document.querySelector<HTMLDivElement>(".footer")
 const subscribeOutput =
   document.querySelector<HTMLDivElement>(".subscribe-output")
 
+const subscribeOutputError = document.querySelector<HTMLDivElement>(
+  ".subscribe-output-error"
+)
+
 const headerNav = document.querySelector(".header__nav")
+
+let emailArray = []
 
 subscribeInput.addEventListener("input", (e) => {
   const colors = [
@@ -28,9 +34,25 @@ subscribeInput.addEventListener("input", (e) => {
 })
 
 subscribeBtn.addEventListener("click", (e) => {
-  let text = subscribeInput.value
-
-  subscribeOutput.innerText = text
+  e.preventDefault()
+  if (
+    subscribeInput.value.length > 0 &&
+    subscribeInput.value.match(/^\S+@\S+$/)
+  ) {
+    if (emailArray.includes(subscribeInput.value)) {
+      subscribeOutputError.innerText = "You are already subscribed"
+    } else {
+      subscribeOutputError.innerText = ""
+      emailArray.push(subscribeInput.value)
+      subscribeOutput.innerHTML = ""
+      emailArray.forEach((email) => {
+        subscribeOutput.innerHTML += `<p>${email}</p>`
+      })
+    }
+  } else {
+    subscribeBtn.disabled = true
+    subscribeOutputError.innerText = "Please enter a valid email address"
+  }
 })
 
 window.onload = () => {
@@ -49,7 +71,6 @@ window.onload = () => {
     nativeToast({
       message: "This is a toast message",
       position: "north-east",
-      // Self destroy in 5 seconds
       timeout: 5000,
       rounded: true,
       icon: false,
