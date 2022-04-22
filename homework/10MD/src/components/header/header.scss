@@ -1,0 +1,22 @@
+.navigation {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: lightblue;
+  padding: 50px;
+  border-radius: 20px;
+  margin-top: 50px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu__link {
+  text-decoration: none;
+  cursor: pointer;
+  color: #000;
+  font-weight: bold;
+}
+

@@ -1,0 +1,43 @@
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 50px 0;
+  gap: 20px;
+  justify-content: space-evenly;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  border-radius: 20px;
+  background-color: salmon;
+  padding: 20px;
+  flex-basis: 30%;
+}
+
+.card__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card__description {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.card__action--link {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  align-self: flex-end;
+  padding: 10px;
+  background-color: lightgreen;
+  border: 2px solid black;
+  border-radius: 20px;
+  cursor: pointer;
+}

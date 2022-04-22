@@ -1,0 +1,39 @@
+.btn {
+  color: red;
+  background-color: #fff;
+  font-size: 20px;
+  padding: 25px;
+  border-radius: 5px;
+  margin: 20px;
+}
+
+.btn:hover {
+  background-color: orange;
+}
+
+/* Button Sizes */
+
+.size--sm {
+  padding: 20px;
+}
+
+.size--md {
+  padding: 35px;
+}
+
+.size--lg {
+  padding: 50px;
+}
+
+/* Button Colors */
+.blue{
+  background-color: #4885ed;
+  }
+
+.green{
+  background-color: #3cba54;
+  }
+
+.red{
+  background-color: #db3236;
+  }
