@@ -1,4 +1,4 @@
-import './heading.scss'
+import './Heading.scss'
 
 type HeadingProps = {
   text: string
