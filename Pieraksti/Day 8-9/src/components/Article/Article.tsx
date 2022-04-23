@@ -6,18 +6,24 @@ import Paragraph from '../Paragraph/Paragraph'
 
 type ArticleProps = {
   imgSrc: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  onClick: () => void;
 }
 
-const Article: FC<ArticleProps> = ({ imgSrc }) => (
+const Article: FC<ArticleProps> = ({
+  imgSrc, title, description, buttonText, onClick,
+}) => (
   <div className="article">
     <img
       src={imgSrc}
       alt="article"
       className="article__image"
     />
-    <Heading text="This is heading" />
-    <Paragraph text="This is paragraph" />
-    <Button text="This is button" onClick={() => (console.log('I clicked smthing'))} />
+    <Heading text={title} />
+    <Paragraph text={description} />
+    <Button text={buttonText} onClick={onClick} />
   </div>
 )
 
