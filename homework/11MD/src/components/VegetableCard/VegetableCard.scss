@@ -1,0 +1,11 @@
+.vcard {
+  display: flex;
+  width: 400px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+}
