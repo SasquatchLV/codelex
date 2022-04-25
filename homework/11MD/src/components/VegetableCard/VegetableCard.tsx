@@ -2,7 +2,6 @@ import './VegetableCard.scss'
 import { FC } from 'react'
 
 type VCardProps = {
-  id: string,
   title: string,
   description: string,
   backgroundColor: string,
@@ -11,12 +10,11 @@ type VCardProps = {
 }
 
 const VCard: FC<VCardProps> = ({
-  id, title, description, backgroundColor, available, clickHandler,
+  title, description, backgroundColor, available, clickHandler,
 }) => (
   available
     ? (
       <div
-        key={id}
         className="vcard"
         style={{ backgroundColor }}
       >

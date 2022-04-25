@@ -28,7 +28,6 @@ const vegetables = [
 
 const VList: FC = () => (
   <div
-    key={Math.random()}
     className="vlist"
   >
     {vegetables
@@ -37,7 +36,6 @@ const VList: FC = () => (
       }) => (
         <VegetableCard
           key={id}
-          id={id}
           title={title}
           description={description}
           backgroundColor={backgroundColor}
@@ -50,7 +48,6 @@ const VList: FC = () => (
 
 const VList2: FC = () => (
   <div
-    key={Math.random()}
     className="vlist"
   >
     {vegetables
@@ -60,7 +57,6 @@ const VList2: FC = () => (
       }) => (
         <VegetableCard
           key={id}
-          id={id}
           title={title}
           description={description}
           backgroundColor={backgroundColor}
