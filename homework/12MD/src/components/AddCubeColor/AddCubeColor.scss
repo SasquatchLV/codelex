@@ -1,0 +1,17 @@
+.cube {
+  width: 100px;
+  height: 100px;
+  background-color: yellow;
+  border-radius: 10px;
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button-wrapper {
+  display: flex;
+  gap: 20px;
+}
