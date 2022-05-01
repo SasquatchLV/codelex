@@ -1,0 +1,20 @@
+.episodes-container {
+  margin: 20px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+}
+
+.episode {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid black;
+}
+
+.episode__info {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
