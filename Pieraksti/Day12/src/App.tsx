@@ -5,11 +5,14 @@ import Episodes from './data/data'
 const App = () => {
   const [episodes, setEpisodes] = useState(Episodes)
   const [search, setSearch] = useState('')
-  const [errorMsg, setErrorMsg] = useState('')
 
   const searchEpisode = () => {
-    const result = episodes.filter((episode) => episode.name.toLowerCase().includes(search.toLowerCase()))
+    const result = [...Episodes].filter((episode) => episode.name.toLowerCase().includes(search.toLowerCase()))
     setEpisodes(result)
+  }
+
+  const backToAll = () => {
+    setEpisodes(Episodes)
   }
 
   return (
@@ -18,42 +21,47 @@ const App = () => {
         <div className="col-xs-12">
           <h1>Search homeland episodes</h1>
           <div className="search-container">
-            <input
-              type="text"
-              placeholder="Episode name"
-              value={search}
-              required
-              onChange={(e) => setSearch(e.target.value)}
-              onKeyDown={(e) => {
-                if (e.key === 'Enter' && search) {
+            <form action="submit">
+              <input
+                type="text"
+                placeholder="Episode name"
+                value={search}
+                required
+                onChange={(e) => setSearch(e.target.value)}
+                onSubmit={(e) => {
+                  e.preventDefault()
                   searchEpisode()
-                  setErrorMsg('')
-                } else {
-                  setErrorMsg('Please enter a search term')
-                }
-              }}
-            />
-            <button
-              className="btn btn-primary"
-              onClick={() => {
-                if (search) {
-                  searchEpisode()
-                  setErrorMsg('')
-                } else {
-                  setErrorMsg('Please enter a search term')
-                }
-              }}
-            >
-              Search
+                }}
+              />
+              <button
+                className="btn btn-primary"
+                onClick={(e) => {
+                  if (search) {
+                    e.preventDefault()
+                    searchEpisode()
+                  }
+                }}
+              >
+                Search
 
-            </button>
-            <div className="error-msg">
-              {errorMsg}
-              {' '}
-            </div>
+              </button>
+              <button
+                className="btn btn-primary"
+                onClick={
+                  (e) => {
+                    e.preventDefault()
+                    setSearch('')
+                    backToAll()
+                  }
+                }
+              >
+                Back to all
+              </button>
+            </form>
+
           </div>
           <div className="episodes-container">
-            {episodes.length ? (episodes.map((episode) => (
+            {episodes.length >= 1 && episodes.map((episode) => (
               <div className="episode" key={episode.id}>
                 {episode.image.medium ? (
                   <div className="episode__image">
@@ -97,8 +105,8 @@ const App = () => {
                   )}
                 </div>
               </div>
-            )))
-              : 'Nothing found'}
+            ))}
+            {!episodes.length && 'Nothing found'}
             <div className="count">
               {' '}
               Found
