@@ -88,7 +88,9 @@ const App = () => {
             {' '}
             {episodes.length}
             {' '}
-            episodes
+            episodes of
+            {' '}
+            {Episodes.length}
           </div>
         </div>
       </div>
