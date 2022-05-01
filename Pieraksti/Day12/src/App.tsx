@@ -7,7 +7,7 @@ const App = () => {
   const [search, setSearch] = useState('')
 
   const searchEpisode = () => {
-    const result = [...Episodes].filter((episode) => episode.name.toLowerCase().includes(search.toLowerCase()))
+    const result = Episodes.filter((episode) => episode.name.toLowerCase().includes(search.toLowerCase()))
     setEpisodes(result)
   }
 
