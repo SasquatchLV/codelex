@@ -4,6 +4,7 @@
   flex-wrap: wrap;
   gap: 20px;
   align-items: center;
+  justify-content: center;
 }
 
 .episode {
@@ -17,4 +18,15 @@
   display: flex;
   justify-content: space-between;
   padding: 10px;
+}
+
+.episode__info-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: inherit;
+}
+
+.count {
+  width: 100%;
 }

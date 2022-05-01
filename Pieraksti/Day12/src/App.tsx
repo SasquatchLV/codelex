@@ -14,7 +14,7 @@ const App = () => {
 
   return (
     <div className="container container-fluid">
-      <div className="row">
+      <div className="row center-xs middle-xs">
         <div className="col-xs-12">
           <h1>Search homeland episodes</h1>
           <div className="search-container">
@@ -24,6 +24,14 @@ const App = () => {
               value={search}
               required
               onChange={(e) => setSearch(e.target.value)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' && search) {
+                  searchEpisode()
+                  setErrorMsg('')
+                } else {
+                  setErrorMsg('Please enter a search term')
+                }
+              }}
             />
             <button
               className="btn btn-primary"
@@ -57,7 +65,15 @@ const App = () => {
                   </div>
                 )}
                 <div className="episode__info">
-                  <h3 className="episode__info-name">{episode.name}</h3>
+                  <a
+                    className="episode__info-name"
+                    href={episode.url}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {episode.name}
+
+                  </a>
                   <p className="episode__info-season">
                     s
                     {episode.season}
@@ -83,14 +99,16 @@ const App = () => {
               </div>
             )))
               : 'Nothing found'}
-
-            Found
-            {' '}
-            {episodes.length}
-            {' '}
-            episodes of
-            {' '}
-            {Episodes.length}
+            <div className="count">
+              {' '}
+              Found
+              {' '}
+              {episodes.length}
+              {' '}
+              episodes of
+              {' '}
+              {Episodes.length}
+            </div>
           </div>
         </div>
       </div>
