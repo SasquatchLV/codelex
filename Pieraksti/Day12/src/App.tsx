@@ -21,26 +21,24 @@ const App = () => {
         <div className="col-xs-12">
           <h1>Search homeland episodes</h1>
           <div className="search-container">
-            <form action="submit">
+            <form
+              action="submit"
+              onSubmit={(e) => {
+                if (search) {
+                  e.preventDefault()
+                  searchEpisode()
+                }
+              }}
+            >
               <input
                 type="text"
                 placeholder="Episode name"
                 value={search}
                 required
                 onChange={(e) => setSearch(e.target.value)}
-                onSubmit={(e) => {
-                  e.preventDefault()
-                  searchEpisode()
-                }}
               />
               <button
                 className="btn btn-primary"
-                onClick={(e) => {
-                  if (search) {
-                    e.preventDefault()
-                    searchEpisode()
-                  }
-                }}
               >
                 Search
 
@@ -48,8 +46,7 @@ const App = () => {
               <button
                 className="btn btn-primary"
                 onClick={
-                  (e) => {
-                    e.preventDefault()
+                  () => {
                     setSearch('')
                     backToAll()
                   }
@@ -63,15 +60,12 @@ const App = () => {
           <div className="episodes-container">
             {episodes.length >= 1 && episodes.map((episode) => (
               <div className="episode" key={episode.id}>
-                {episode.image.medium ? (
-                  <div className="episode__image">
-                    <img src={episode.image.medium} alt={episode.name} />
-                  </div>
-                ) : (
-                  <div className="episode__image">
-                    <img src="http://placehold.jp/250x140.png" alt={episode.name} />
-                  </div>
-                )}
+                <div className="episode__image">
+                  <img
+                    src={episode.image.medium ? episode.image.medium : 'http://placehold.jp/250x140.png'}
+                    alt={episode.name}
+                  />
+                </div>
                 <div className="episode__info">
                   <a
                     className="episode__info-name"
@@ -106,7 +100,7 @@ const App = () => {
                 </div>
               </div>
             ))}
-            {!episodes.length && 'Nothing found'}
+            {!episodes.length && `Sorry, nothing found for "${search}"`}
             <div className="count">
               {' '}
               Found

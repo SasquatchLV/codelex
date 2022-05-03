@@ -1,0 +1,22 @@
+.row {
+  margin: 20px 0;
+}
+
+.box {
+  background: brown;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: white;
+  height: 100px;
+  position: relative;
+  margin: 10px 0;
+}
+
+.box__inside {
+  display: inline-block;
+  border: 1px solid black;
+  padding: 20px;
+  background-color: orange;
+  // display: none;
+}
