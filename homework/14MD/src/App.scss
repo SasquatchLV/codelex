@@ -1,0 +1,44 @@
+.row {
+  margin: 20px 0;
+}
+
+.task-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid black;
+  gap: 10px;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid black;
+  gap: 10px;
+}
+
+.box-container button {
+  padding: 20px;
+}
+
+.count {
+  border: 1px solid black;
+  padding: 20px;
+  font-size: 2rem;
+}
+
+.box-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  margin: 10px 0;
+}
