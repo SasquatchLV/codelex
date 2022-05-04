@@ -12,6 +12,10 @@ const Task4 = () => {
         buttonRef.current!.disabled = false
       }, 5000)
     }
+
+    return () => {
+      clearTimeout()
+    }
   }, [])
 
   useEffect(() => {
