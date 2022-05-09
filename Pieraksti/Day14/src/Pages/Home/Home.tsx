@@ -5,8 +5,7 @@ const Home = () => {
 
   return (
     <div>
-      <h1>Home Page</h1>
-      <button onClick={() => navigate('/about')}>Go to About Page</button>
+      <h1 className="heading">Home Page</h1>
     </div>
   )
 }
