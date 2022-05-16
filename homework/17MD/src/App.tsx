@@ -37,12 +37,10 @@ const App = () => {
         <header>
           <nav className="flex">
             <NavLink className="link" to="/">Home</NavLink>
-            {/* <NavLink className="link" to="/users">Users</NavLink> */}
             <NavLink className="link" to="/characters">Characters</NavLink>
             <NavLink className="link" to="/episodes">Episodes</NavLink>
           </nav>
         </header>
-
         <Routes>
           <Route path="/" element={<Navigate to="/characters" />} />
           <Route path="/characters" element={<Characters />} />
@@ -51,10 +49,9 @@ const App = () => {
           <Route path="/episodes/:id" element={<Episode />} />
           <Route path="/404" element={<Page404 />} />
           <Route path="*" element={<Navigate to="/404" />} />
-
         </Routes>
-
       </Router>
+
       <video autoPlay muted loop className="bgvideo">
         <source
           src="https://mylivewallpapers.b-cdn.net/wp-content/uploads/Movies/PREVIEW-Rick-N-Morty-Adventures.mp4"
@@ -63,7 +60,6 @@ const App = () => {
       </video>
 
       <div className="bgvideo-overlay" />
-
       {showButton && (
         <button onClick={scrollToTop} className="back-to-top">
           <FontAwesomeIcon icon={solid('arrow-up')} />

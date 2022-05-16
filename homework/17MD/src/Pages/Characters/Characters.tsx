@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { useSearchParams } from 'react-router-dom'
 import { CharacterType } from '../../Models/CharacterModel'
 import { PageInfo } from '../../Models/PageInfoModel'
 import CharacterCard from '../../components/CharacterCard/CharacterCard'
@@ -9,19 +10,20 @@ import './Characters.scss'
 
 const Characters = () => {
   const [allCharacters, setAllCharacters] = useState<CharacterType[]>()
+  const [searchParams, setSearchParams] = useSearchParams('')
   const [loading, setLoading] = useState<boolean>(false)
   const [pageInfo, setPageInfo] = useState<PageInfo>()
-  const [activeFilter, setActiveFilter] = useState<string>('all')
+  // const [activeFilter, setActiveFilter] = useState<string>('all')
   const [errorMessage, setErrorMessage] = useState<string>()
   const [nextPageUrl, setNextPageUrl] = useState<string>()
   const [hasMore, setHasMore] = useState<boolean>(true)
 
   const getAllCharacters = async () => {
-    const filterParams = activeFilter === 'all' ? '' : `?status=${activeFilter}`
+    // const filterParams = activeFilter === 'all' ? '' : `?status=${activeFilter}`
     setLoading(true)
     setErrorMessage('')
     try {
-      const response = await axios.get(`https://rickandmortyapi.com/api/character/${filterParams}`)
+      const response = await axios.get(`https://rickandmortyapi.com/api/character/?${searchParams}`)
       setAllCharacters(response.data.results)
       setPageInfo(response.data.info)
       if (response.data.info.next === null) {
@@ -66,7 +68,7 @@ const Characters = () => {
 
   useEffect(() => {
     getAllCharacters()
-  }, [activeFilter])
+  }, [searchParams])
 
   const fetchData = async () => {
     const moreCharacters = await fetchMoreCharacters()
@@ -91,28 +93,28 @@ const Characters = () => {
           allCharacters && (
             <div className="action-container">
               <button onClick={() => {
-                setActiveFilter('all')
+                setSearchParams('')
               }}
               >
                 All
 
               </button>
               <button onClick={() => {
-                setActiveFilter('alive')
+                setSearchParams({ status: 'alive' })
               }}
               >
                 Alive
 
               </button>
               <button onClick={() => {
-                setActiveFilter('dead')
+                setSearchParams({ status: 'dead' })
               }}
               >
                 Dead
 
               </button>
               <button onClick={() => {
-                setActiveFilter('unknown')
+                setSearchParams({ status: 'unknown' })
               }}
               >
                 Unknown

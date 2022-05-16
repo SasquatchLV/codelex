@@ -40,7 +40,6 @@ const Character = () => {
   }, [currentPage])
 
   return (
-    // Create a card with character information inside
     <div className="character-single-container">
       {loading && <Loader />}
       {character && (
@@ -101,7 +100,10 @@ const Character = () => {
                 Next
               </button>
             )}
-            <button className="character__button" onClick={() => navigate('/characters')}>
+            <button
+              className="character__button"
+              onClick={() => navigate('/characters')}
+            >
               Back
             </button>
             {currentPage > 1 && (
@@ -114,7 +116,6 @@ const Character = () => {
                 Previous
               </button>
             )}
-
           </div>
         </div>
       )}

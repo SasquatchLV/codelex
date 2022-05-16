@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import InfiniteScroll from 'react-infinite-scroll-component'
+import { useSearchParams } from 'react-router-dom'
 import { EpisodesModel } from '../../Models/EpisodesModel'
 import { PageInfo } from '../../Models/PageInfoModel'
 import EpisodeCard from '../../components/EpisodeCard/EpisodeCard'
@@ -9,19 +10,18 @@ import './Episodes.scss'
 
 const Episodes = () => {
   const [allEpisodes, setAllEpisodes] = useState<EpisodesModel[]>()
+  const [searchParams, setSearchParams] = useSearchParams('')
   const [loading, setLoading] = useState<boolean>(false)
   const [pageInfo, setPageInfo] = useState<PageInfo>()
-  const [activeFilter, setActiveFilter] = useState<string>('')
   const [errorMessage, setErrorMessage] = useState<string>()
   const [nextPageUrl, setNextPageUrl] = useState<string>()
   const [hasMore, setHasMore] = useState<boolean>(true)
 
   const getAllEpisodes = async () => {
-    const filterParams = activeFilter === '' ? '' : `?name=${activeFilter}`
     setLoading(true)
     setErrorMessage('')
     try {
-      const response = await axios.get(`https://rickandmortyapi.com/api/episode/${filterParams}`)
+      const response = await axios.get(`https://rickandmortyapi.com/api/episode/?${searchParams}`)
       setAllEpisodes(response.data.results)
       setPageInfo(response.data.info)
       if (response.data.info.next === null) {
@@ -69,7 +69,7 @@ const Episodes = () => {
 
   useEffect(() => {
     getAllEpisodes()
-  }, [activeFilter])
+  }, [searchParams])
 
   const fetchData = async () => {
     const moreEpisodes = await fetchMoreEpisodes()
@@ -89,14 +89,13 @@ const Episodes = () => {
           && <h1 className="heading">{`Total: ${pageInfo.pages} pages and ${pageInfo.count} episodes`}</h1>}
 
         <div className="action-container">
-          {/* // Filter all episodes by name */}
           <label className="filter-label">
             Filter by name:
             <input
               type="text"
               onChange={
                 (e) => {
-                  setActiveFilter(e.target.value)
+                  setSearchParams({ name: e.target.value })
                 }
               }
             />

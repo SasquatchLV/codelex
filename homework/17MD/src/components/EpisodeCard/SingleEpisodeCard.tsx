@@ -1,5 +1,5 @@
 /* eslint-disable camelcase */
-import React, { FC, useState } from 'react'
+import { FC } from 'react'
 import { CharacterType } from '../../Models/CharacterModel'
 import CharacterCard from '../CharacterCard/CharacterCard'
 

@@ -54,10 +54,6 @@ const Episode = () => {
     }
   }, [currentPage])
 
-  // useEffect(() => {
-  //   getCharacters()
-  // }, [])
-
   return (
     <div className="episode-single-container">
       {loading && <Loader />}

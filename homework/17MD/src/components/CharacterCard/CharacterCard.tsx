@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { useNavigate } from 'react-router-dom'
+import styles from './CharacterCard.module.scss'
 
 type CharacterCardType = {
   id: number
@@ -13,18 +14,18 @@ type CharacterCardType = {
 const CharacterCard: FC<CharacterCardType> = ({
   id, image, name, status, species, gender,
 }) => {
-  const navigation = useNavigate()
+  const navigate = useNavigate()
 
   return (
-    <div className="character">
+    <div className={styles.character}>
       <div>
-        <img className="character__image" src={image} alt={name} />
+        <img className={styles.character__image} src={image} alt={name} />
       </div>
-      <div className="character__info--wrapper">
-        <div className="character__name">
+      <div className={styles.character__wrapper}>
+        <div className={styles.character__name}>
           {name}
         </div>
-        <div className="character__info">
+        <div className={styles.character__info}>
           <span>
             Status:
             <br />
@@ -49,8 +50,8 @@ const CharacterCard: FC<CharacterCardType> = ({
 
         </div>
         <button
-          className="character__button"
-          onClick={() => navigation(`/characters/${id}`)}
+          className={styles.character__button}
+          onClick={() => navigate(`/characters/${id}`)}
         >
           See details
 
