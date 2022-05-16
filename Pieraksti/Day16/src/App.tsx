@@ -1,54 +1,42 @@
+import { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {
-  decrement, increment, incrementByAmount, divideByTwo, multiplyBySeven, resetToZero,
-} from './store/reducers/counterReducer'
+  addTodo, removeTodo,
+} from './store/reducers/todoReducer'
 import './App.scss'
 import { RootState, AppDispatch } from './app/store'
 
 export function App() {
-  const count = useSelector((state: RootState) => state.counter.value)
+  const todos = useSelector((state: RootState) => state.toDos.todos)
   const dispatch = useDispatch<AppDispatch>()
+  const [inputValue, setInputValue] = useState('')
 
   return (
     <div>
       <div>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
         <button
-          aria-label="Increment value"
-          onClick={() => dispatch(increment())}
+          onClick={() => {
+            dispatch(addTodo(inputValue))
+            setInputValue('')
+          }}
         >
-          Increment
+          Add todo
         </button>
-        <span style={{ fontSize: '50px' }}>{count}</span>
-        <button
-          aria-label="Decrement value"
-          onClick={() => dispatch(decrement())}
-        >
-          Decrement
-        </button>
-        <button
-          aria-label="Increment by 5"
-          onClick={() => dispatch(incrementByAmount(5))}
-        >
-          Increment by 5
-        </button>
-        <button
-          aria-label="Divide by two"
-          onClick={() => dispatch(divideByTwo())}
-        >
-          Divide by 2
-        </button>
-        <button
-          aria-label="Multiply by 7"
-          onClick={() => dispatch(multiplyBySeven())}
-        >
-          Multiply by 7
-        </button>
-        <button
-          aria-label="Reset to 0"
-          onClick={() => dispatch(resetToZero())}
-        >
-          Reset to 0
-        </button>
+        <ul>
+          {todos.map((todo, index) => (
+            <>
+              <li key={Math.random()}>
+                {todo}
+                <button onClick={() => dispatch(removeTodo(index))}>Remove</button>
+              </li>
+            </>
+          ))}
+        </ul>
       </div>
     </div>
   )
