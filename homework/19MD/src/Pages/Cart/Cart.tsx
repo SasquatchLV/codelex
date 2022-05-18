@@ -22,7 +22,6 @@ const Cart = () => {
               cartItems.map(({
                 id, imgSrc, title, count, price,
               }) => (
-
                 <div key={id} className="bg-light border bd-highlight p-3 d-flex  align-items-center">
                   <div className="me-3">
                     <img

@@ -1,20 +1,26 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ShopItem } from '../../Data/shopItems'
 
+type AddToCartPayload = {
+   payload: { item: ShopItem; count: number }
+}
+
 export const cartSlice = createSlice({
   name: 'cartItems',
   initialState: {
     cartItems: [] as ShopItem[],
   },
   reducers: {
-    addToCart: (state: { cartItems: ShopItem[] }, action: { payload: { item: ShopItem; count: number } }) => {
+    addToCart: (state: { cartItems: ShopItem[] }, { payload }: AddToCartPayload) => {
       const { cartItems } = state
-      const { id } = action.payload.item
+      const { id } = payload.item
+
       const singleItem = cartItems.find((item) => item.id === id)
+
       if (singleItem) {
-        singleItem.count += action.payload.count
+        singleItem.count += payload.count
       } else {
-        state.cartItems = [...state.cartItems, { ...action.payload.item, count: action.payload.count }]
+        state.cartItems = [...cartItems, { ...payload.item, count: payload.count }]
       }
     },
     clearCart: (state: { cartItems: ShopItem[] }) => {
@@ -23,6 +29,7 @@ export const cartSlice = createSlice({
     changeQuantity: (state: { cartItems: ShopItem[] }, action: { payload: { id: number; count: number } }) => {
       const { cartItems } = state
       const singleItem = cartItems.find((item) => item.id === action.payload.id)
+
       if (singleItem) {
         if (action.payload.count > 0) {
           singleItem.count = action.payload.count

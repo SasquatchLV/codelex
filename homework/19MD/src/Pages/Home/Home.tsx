@@ -4,7 +4,7 @@ import { ShopItem, getShopItems } from '../../Data/shopItems'
 import ProductCard from '../../components/ProductCard/ProductCard'
 
 const Home = () => {
-  const [shopItems, setShopItems] = useState<ShopItem[]>()
+  const [shopItems, setShopItems] = useState<ShopItem[]>([])
   const [visibleItems, setVisibleItems] = useState(9)
 
   const showMoreItems = () => {
@@ -19,7 +19,7 @@ const Home = () => {
   return (
     <Container>
       <Row className="d-flex justify-content-center justify-content-md-between gap-3 mb-5">
-        {shopItems && shopItems.slice(0, visibleItems).map(({
+        {shopItems.slice(0, visibleItems).map(({
           id, title, price, imgSrc, count,
         }) => (
           <ProductCard
@@ -31,7 +31,7 @@ const Home = () => {
             count={count}
           />
         ))}
-        {shopItems && shopItems.length > visibleItems && (
+        {shopItems.length > visibleItems && (
           <Button
             variant="outline-primary"
             role="button"
@@ -43,7 +43,6 @@ const Home = () => {
             Load more products
           </Button>
         )}
-
       </Row>
     </Container>
   )
