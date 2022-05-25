@@ -7,6 +7,13 @@ export type CurrenciesType = {
   value: string,
 }
 
+export type SingleCurrencyType = {
+  date: string,
+  currency: {
+    [key: string]: number
+  }
+}
+
 // Define a service using a base URL and expected endpoints
 export const currencyApi = createApi({
   reducerPath: 'currencyApi',
@@ -15,11 +22,14 @@ export const currencyApi = createApi({
     getAllCurrencies: builder.query<CurrenciesType, void>({
       query: () => '/currencies.json',
     }),
+    getSingleCurrency: builder.query<CurrenciesType, string>({
+      query: (currency) => `/currencies/${currency}.json`,
+    }),
   }),
 })
 
 // Export hooks for usage in function components, which are
 // auto-generated based on the defined endpoints
-export const { useGetAllCurrenciesQuery } = currencyApi
+export const { useGetAllCurrenciesQuery, useGetSingleCurrencyQuery } = currencyApi
 
 export default currencyApi

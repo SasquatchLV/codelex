@@ -1,18 +1,22 @@
 import { useEffect, useState } from 'react'
 import {
-  Button, Col, Container, Row, Spinner, Table,
+  Button, Col, Container, Form, Row, Spinner,
 } from 'react-bootstrap'
-import { useGetAllCurrenciesQuery, CurrenciesType } from '../../store/reducers/currencyApi'
+import { useGetAllCurrenciesQuery, useGetSingleCurrencyQuery, CurrenciesType } from '../../store/reducers/currencyApi'
 
 const Home = () => {
   const { data, isLoading, isSuccess } = useGetAllCurrenciesQuery()
   const [currencies, setCurrencies] = useState<CurrenciesType[]>()
+  const [selectedCurrency, setSelectedCurrency] = useState<string>('usd')
+  const singleCurrency = useGetSingleCurrencyQuery(selectedCurrency)
 
   useEffect(() => {
     if (isSuccess && !isLoading) {
       setCurrencies(Object.entries(data).map(([key, value]) => ({ key, value })))
     }
   }, [data, isSuccess])
+
+  console.log(singleCurrency)
 
   return (
     <Container>
@@ -31,26 +35,40 @@ const Home = () => {
 
       {isSuccess && (
         <>
-          <Row className="d-flex justify-content-center justify-content-md-between gap-3 mb-5">
-            <Col>
-              <Table striped bordered hover variant="dark">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Currency (short)</th>
-                    <th>Currency (long)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {currencies && currencies.map((key, index) => (
-                    <tr>
-                      <td>{index + 1}</td>
-                      <td>{key.key}</td>
-                      <td>{key.value}</td>
-                    </tr>
+          <Row className="d-flex justify-content-center gap-3 mb-5">
+            <Col xs={4}>
+              <Form.Select
+                aria-label="Default select example"
+                onChange={(e) => (
+                  setSelectedCurrency(e.target.value)
+                )}
+                value="usd"
+              >
+                {currencies && currencies.map((key, index) => (
+                  <option
+                    key={key.key}
+                    value={key.key}
+                  >
+                    (
+                    {key.key.toUpperCase()}
+                    )
+                    {' '}
+                    {key.value}
+                  </option>
+                ))}
+              </Form.Select>
+              {singleCurrency.data && singleCurrency.isSuccess && (
+                <>
+                  {/* Map out singleCurrency data in to array */}
+                  {Object.entries(singleCurrency.data).map(([key, value]) => (
+                    <p>
+                      {key}
+                      {' '}
+                      {value}
+                    </p>
                   ))}
-                </tbody>
-              </Table>
+                </>
+              )}
             </Col>
           </Row>
         </>
