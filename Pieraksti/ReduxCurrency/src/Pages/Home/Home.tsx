@@ -1,13 +1,16 @@
 import { useEffect, useState } from 'react'
 import {
-  Button, Col, Container, Form, Row, Spinner,
+  Col, Container, Form, Row, Spinner, Table,
 } from 'react-bootstrap'
-import { useGetAllCurrenciesQuery, useGetSingleCurrencyQuery, CurrenciesType } from '../../store/reducers/currencyApi'
+import {
+  useGetAllCurrenciesQuery, useGetSingleCurrencyQuery, CurrenciesType,
+} from '../../store/reducers/currencyApi'
 
 const Home = () => {
   const { data, isLoading, isSuccess } = useGetAllCurrenciesQuery()
   const [currencies, setCurrencies] = useState<CurrenciesType[]>()
   const [selectedCurrency, setSelectedCurrency] = useState<string>('usd')
+  const [tradeValue, setTradeValue] = useState<CurrenciesType[]>()
   const singleCurrency = useGetSingleCurrencyQuery(selectedCurrency)
 
   useEffect(() => {
@@ -16,7 +19,12 @@ const Home = () => {
     }
   }, [data, isSuccess])
 
-  console.log(singleCurrency)
+  useEffect(() => {
+    if (singleCurrency.isSuccess && !singleCurrency.isLoading) {
+      const singleData = Object.values(singleCurrency.data)[1]
+      setTradeValue(Object.entries(singleData).map(([key, value]) => ({ key, value })))
+    }
+  }, [singleCurrency])
 
   return (
     <Container>
@@ -39,10 +47,10 @@ const Home = () => {
             <Col xs={4}>
               <Form.Select
                 aria-label="Default select example"
-                onChange={(e) => (
+                onChange={(e) => {
                   setSelectedCurrency(e.target.value)
-                )}
-                value="usd"
+                }}
+                value={selectedCurrency}
               >
                 {currencies && currencies.map((key, index) => (
                   <option
@@ -57,18 +65,30 @@ const Home = () => {
                   </option>
                 ))}
               </Form.Select>
-              {singleCurrency.data && singleCurrency.isSuccess && (
-                <>
-                  {/* Map out singleCurrency data in to array */}
-                  {Object.entries(singleCurrency.data).map(([key, value]) => (
-                    <p>
-                      {key}
-                      {' '}
-                      {value}
-                    </p>
+            </Col>
+          </Row>
+          <Row className="mb-5">
+            <Col>
+              <Table striped bordered hover variant="dark">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Currency</th>
+                    <th>Rate</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {tradeValue && tradeValue.map((key, index) => (
+                    <tr key={key.key}>
+                      <td>{index + 1}</td>
+                      <td>{key.key.toUpperCase()}</td>
+                      <td>
+                        {key.value}
+                      </td>
+                    </tr>
                   ))}
-                </>
-              )}
+                </tbody>
+              </Table>
             </Col>
           </Row>
         </>

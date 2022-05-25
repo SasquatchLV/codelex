@@ -22,7 +22,7 @@ export const currencyApi = createApi({
     getAllCurrencies: builder.query<CurrenciesType, void>({
       query: () => '/currencies.json',
     }),
-    getSingleCurrency: builder.query<CurrenciesType, string>({
+    getSingleCurrency: builder.query<SingleCurrencyType, string>({
       query: (currency) => `/currencies/${currency}.json`,
     }),
   }),
