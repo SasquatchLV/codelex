@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom'
 import Header from './components/Header/Header'
 import Home from './Pages/Home/Home'
-// import SinglePokemon from './Pages/SinglePokemon/SinglePokemon'
+import Compare from './Pages/Compare/Compare'
 
 export function App() {
   const a = []
@@ -16,7 +16,7 @@ export function App() {
 
         <Routes>
           <Route path="/" element={<Home />} />
-          {/* <Route path="/pokemon/:pokename" element={<SinglePokemon />} /> */}
+          <Route path="/compare" element={<Compare />} />
 
         </Routes>
 

@@ -24,6 +24,9 @@ const Header = () => (
               <LinkContainer to="/">
                 <Nav.Link>Home</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/compare">
+                <Nav.Link>Compare</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Col>
         </Row>

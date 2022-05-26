@@ -8,7 +8,7 @@ import {
 
 const Home = () => {
   const { data, isLoading, isSuccess } = useGetAllCurrenciesQuery()
-  const [currencies, setCurrencies] = useState<CurrenciesType[]>()
+  const [currencies, setCurrencies] = useState<CurrenciesType[] | undefined>()
   const [selectedCurrency, setSelectedCurrency] = useState<string>('usd')
   const [tradeValue, setTradeValue] = useState<CurrenciesType[]>()
   const singleCurrency = useGetSingleCurrencyQuery(selectedCurrency)
@@ -67,6 +67,15 @@ const Home = () => {
               </Form.Select>
             </Col>
           </Row>
+          <h1 className="text-center">
+            1
+            {' '}
+            {selectedCurrency.toUpperCase()}
+            {' '}
+            =
+            {' '}
+          </h1>
+          <br />
           <Row className="mb-5">
             <Col>
               <Table striped bordered hover variant="dark">

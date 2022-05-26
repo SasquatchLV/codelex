@@ -14,6 +14,10 @@ export type SingleCurrencyType = {
   }
 }
 
+export type TradeCurrencyType = {
+  key: string,
+}
+
 // Define a service using a base URL and expected endpoints
 export const currencyApi = createApi({
   reducerPath: 'currencyApi',
@@ -22,7 +26,7 @@ export const currencyApi = createApi({
     getAllCurrencies: builder.query<CurrenciesType, void>({
       query: () => '/currencies.json',
     }),
-    getSingleCurrency: builder.query<SingleCurrencyType, string>({
+    getSingleCurrency: builder.query<TradeCurrencyType, string>({
       query: (currency) => `/currencies/${currency}.json`,
     }),
   }),
