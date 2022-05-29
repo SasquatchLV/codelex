@@ -1,17 +1,23 @@
-import { useEffect, useState } from 'react'
+import { useRef, useState } from 'react'
 import {
-  Button, Card, Col, Container, Form, FormControl, InputGroup, Modal, Row, Spinner,
+  Button, Card, Col, Container, Form, FormControl, InputGroup, Modal, Row,
 } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { addAnimal, addSpecies, filterBySpecies } from '../../store/reducers/animalReducer'
+import {
+  addAnimal, addSpecies, filterBySpecies, removeAnimal, removeSpecies,
+} from '../../store/reducers/animalReducer'
 import { RootState, AppDispatch } from '../../app/store'
 
 const Home = () => {
   const animals = useSelector((state: RootState) => state.animalSlice.animals)
   const species = useSelector((state: RootState) => state.animalSlice.species)
   const dispatch = useDispatch<AppDispatch>()
+
+  const nameError = useRef<HTMLInputElement>(null)
+  const imageError = useRef<HTMLInputElement>(null)
+  const speciesError = useRef<HTMLSelectElement>(null)
 
   const [show, setShow] = useState(false)
   const [name, setName] = useState('')
@@ -27,14 +33,17 @@ const Home = () => {
   const handleAddAnimal = () => {
     if (!name) {
       setErrorMsg('Name is required')
+      nameError.current?.focus()
       return
     }
     if (!image) {
       setErrorMsg('Image is required')
+      imageError.current?.focus()
       return
     }
     if (!chosenSpecie) {
       setErrorMsg('Species is required')
+      speciesError.current?.focus()
       return
     }
 
@@ -99,9 +108,26 @@ const Home = () => {
                 <Card.Img variant="top" src={animal.image} height={200} />
                 <Card.Body>
                   <Card.Title>{animal.name}</Card.Title>
-                  <Card.Text>
+                  <Card.Text className="mb-3">
                     {animal.species}
                   </Card.Text>
+                  <Button
+                    variant="outline-danger"
+                    onClick={() => {
+                      dispatch(removeAnimal(animal.id))
+                      toast.error(`${animal.name} successfully removed !`, {
+                        position: 'top-right',
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: false,
+                        draggable: false,
+                        progress: undefined,
+                      })
+                    }}
+                  >
+                    Remove
+                  </Button>
                 </Card.Body>
               </Card>
             </Col>
@@ -113,9 +139,11 @@ const Home = () => {
 
       <Row>
         <Col className="d-flex justify-content-center gap-5 m-5">
+
           <Button variant="dark" onClick={handleShow}>
             Add animal
           </Button>
+
           <Button
             variant="dark"
             onClick={() => {
@@ -142,6 +170,7 @@ const Home = () => {
                 <FormControl
                   placeholder="Name of the animal"
                   value={name}
+                  ref={nameError}
                   onChange={(e) => {
                     setName(e.target.value)
                   }}
@@ -152,6 +181,7 @@ const Home = () => {
                 <FormControl
                   placeholder="Image link for the animal"
                   value={image}
+                  ref={imageError}
                   onChange={(e) => {
                     setImage(e.target.value)
                   }}
@@ -192,6 +222,7 @@ const Home = () => {
                 ) : (
                   <Form.Select
                     value={chosenSpecie}
+                    ref={speciesError}
                     onChange={(e) => {
                       setChosenSpecie(e.target.value)
                     }}

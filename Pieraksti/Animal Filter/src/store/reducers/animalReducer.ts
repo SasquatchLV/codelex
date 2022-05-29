@@ -32,13 +32,23 @@ export const animalSlice = createSlice({
         state.animals = allAniamls.filter((animal) => animal.species === action.payload)
       }
     },
+    removeAnimal: (state, action) => {
+      const animals = state.animals.filter((animal) => animal.id !== action.payload)
+      localStorage.setItem('animals', JSON.stringify(animals))
+      state.animals = animals
+    },
+    removeSpecies: (state, action) => {
+      const species = state.species.filter((animal) => animal !== action.payload)
+      localStorage.setItem('species', JSON.stringify(species))
+      state.species = species
+    },
 
   },
 })
 
 // Action creators are generated for each case reducer function
 export const {
-  addAnimal, addSpecies, filterBySpecies,
+  addAnimal, addSpecies, filterBySpecies, removeAnimal, removeSpecies,
 } = animalSlice.actions
 
 export default animalSlice.reducer
