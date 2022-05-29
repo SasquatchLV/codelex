@@ -32,6 +32,8 @@ export const pokemonApi = createApi({
   endpoints: (builder) => ({
     getAllPokemons: builder.query<AllPokemonsResponse, void>({
       query: () => 'pokemon',
+      // transformResponse: (response: { results: { data: AllPokemonsResponse } }) => response.results.data,
+      // Add each response results to the previous results
     }),
     getPokemonByName: builder.query<SinglePokemon, string | undefined>({
       query: (name) => `pokemon/${name}`,

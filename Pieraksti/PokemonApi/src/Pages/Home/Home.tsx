@@ -29,6 +29,7 @@ const Home = () => {
     if (!newPokemons.isLoading && newPokemons.isSuccess) {
       setPokemons([...pokemons, ...newPokemons.data?.results])
       setNextPage(newPokemons.data?.next.split('/').pop())
+      console.log(nextPage)
     }
   }
 
