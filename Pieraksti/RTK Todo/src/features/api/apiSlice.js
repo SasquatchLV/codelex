@@ -16,6 +16,9 @@ export const apiSlice = createApi({
                 method: 'POST',
                 body: todo
             }),
+        //     providesTags: (result) =>
+        // result ? result.map(({ id }) => ({ type: 'Posts', id })) : [],
+
             invalidatesTags: ['Todos']
         }),
         updateTodo: builder.mutation({

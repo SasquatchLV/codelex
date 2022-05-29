@@ -52,6 +52,7 @@ const TodoList = () => {
                         <input
                         type="checkbox"
                         id={todo.id}
+                        checked={todo.completed}
                         onChange={() => updateTodo({ ...todo, completed: !todo.completed })}
                         />
                         <label htmlFor={todo.id}>{todo.title}</label>
