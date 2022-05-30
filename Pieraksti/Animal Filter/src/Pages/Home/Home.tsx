@@ -11,8 +11,8 @@ import {
 import { RootState, AppDispatch } from '../../app/store'
 
 const Home = () => {
-  const animals = useSelector((state: RootState) => state.animalSlice.animals)
-  const species = useSelector((state: RootState) => state.animalSlice.species)
+  const { animals } = useSelector(({ animalSlice }: RootState) => animalSlice)
+  const { species } = useSelector(({ animalSlice }: RootState) => animalSlice)
   const dispatch = useDispatch<AppDispatch>()
 
   const nameError = useRef<HTMLInputElement>(null)
@@ -27,7 +27,10 @@ const Home = () => {
   const [isEdit, setIsEdit] = useState(false)
   const [errorMsg, setErrorMsg] = useState<string>('')
 
-  const handleClose = () => setShow(false)
+  const handleClose = () => {
+    setShow(false)
+    setErrorMsg('')
+  }
   const handleShow = () => setShow(true)
 
   const handleAddAnimal = () => {
@@ -57,7 +60,6 @@ const Home = () => {
     setName('')
     setImage('')
     setChosenSpecie('')
-    setErrorMsg('')
     handleClose()
 
     toast.success(`${name} successfully added !`, {
@@ -104,7 +106,7 @@ const Home = () => {
         {animals.length > 0 ? (
           animals.map((animal) => (
             <Col xs={3} className="mb-5" key={animal.id}>
-              <Card key={animal.id} style={{ width: '15rem' }}>
+              <Card style={{ width: '15rem' }}>
                 <Card.Img variant="top" src={animal.image} height={200} />
                 <Card.Body>
                   <Card.Title>{animal.name}</Card.Title>
@@ -211,8 +213,13 @@ const Home = () => {
                     <Button
                       variant="primary"
                       onClick={() => {
+                        if (speciesInput.length < 3) {
+                          setErrorMsg('Add the name of the species, atleast 3 characters')
+                          return
+                        }
                         dispatch(addSpecies(speciesInput))
                         setSpeciesInput('')
+                        setErrorMsg('')
                         setIsEdit(false)
                       }}
                     >
