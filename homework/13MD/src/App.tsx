@@ -1,6 +1,7 @@
 import './App.scss'
 import { useState } from 'react'
 import FifthPlanner from './components/FifthPlanner/FifthPlanner'
+import ThirdPlanner from './components/ThirdPlanner/ThirdPlanner'
 
 const App = () => {
   const defaultDark = window.matchMedia('(prefers-color-scheme: dark)').matches
