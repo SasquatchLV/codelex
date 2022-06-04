@@ -7,6 +7,7 @@
         v-model="newTodo.text"
         @keyup.enter="addTask"
         placeholder="Enter todo..."
+        autofocus
       />
       <button @click="addTask" class="button">Add</button>
     </div>
@@ -28,7 +29,7 @@
         v-for="todo in todoList"
         @click="handleChecked(todo)"
       >
-        <input type="checkbox" v-bind:checked="todo.completed" />
+        <input type="checkbox" :checked="todo.completed" />
         <span v-if="todo.completed">
           <s>{{ todo.text }}</s>
         </span>
@@ -42,7 +43,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 
-export interface SingleTodo {
+interface SingleTodo {
   id: number;
   text: string;
   completed: boolean;
@@ -52,6 +53,7 @@ export default defineComponent({
   name: "TodoList",
   data() {
     return {
+      filter: "" as string,
       newTodo: {} as SingleTodo,
       todoList: JSON.parse(
         localStorage.getItem("todoList") || "[]"
