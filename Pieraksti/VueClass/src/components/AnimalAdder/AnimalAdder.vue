@@ -41,17 +41,42 @@ import { v4 as uuidv4 } from "uuid";
 export default defineComponent({
   name: "AnimalAdder",
   emits: ["animalInfo"],
-  data() {
-    return {
+  data: () => (
+    console.log("* child data is initialised"),
+    {
       inputValue: "",
       selectValue: "",
       id: uuidv4(),
-    };
+    }
+  ),
+  beforeCreate() {
+    console.log("* child beforeCreate");
   },
+  created() {
+    console.log("* child created");
+  },
+  beforeMount() {
+    console.log("* child beforeMount");
+  },
+  mounted() {
+    console.log("* child mounted");
+  },
+  beforeUpdate() {
+    console.log("* child beforeUpdate");
+  },
+  updated() {
+    console.log("* child updated");
+  },
+  beforeUnmount() {
+    console.log("* child beforeUnmount");
+  },
+  unmounted() {
+    console.log("* child unmounted");
+  },
+
   methods: {
     submitHandler() {
       this.$emit("animalInfo", this.id, this.inputValue, this.selectValue);
-
       this.inputValue = "";
       this.selectValue = "";
       this.id = uuidv4();

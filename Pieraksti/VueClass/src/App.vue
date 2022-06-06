@@ -17,6 +17,7 @@ type AnimalType = {
   id: string;
   name: string;
   type: string;
+  created: number;
 };
 
 export default defineComponent({
@@ -26,13 +27,38 @@ export default defineComponent({
     AnimalFilter,
     AnimalCard,
   },
-  data: () => ({
-    count: 10,
-    viewMode: "All" as ViewMode,
-    animals: [] as AnimalType[],
-  }),
+  data: () => (
+    console.log("* data is initialised"),
+    {
+      a: 1,
+      viewMode: "All" as ViewMode,
+      animals: [] as AnimalType[],
+    }
+  ),
+  beforeCreate() {
+    console.log("* beforeCreate");
+  },
   created() {
+    console.log("* created");
     this.animals = JSON.parse(localStorage.getItem("animals") || "[]");
+  },
+  beforeMount() {
+    console.log("* beforeMount");
+  },
+  mounted() {
+    console.log("* mounted");
+  },
+  beforeUpdate() {
+    console.log("* beforeUpdate");
+  },
+  updated() {
+    console.log("* updated");
+  },
+  beforeUnmount() {
+    console.log("* beforeUnmount");
+  },
+  unmounted() {
+    console.log("* unmounted");
   },
   computed: {
     animalsView() {
@@ -57,7 +83,12 @@ export default defineComponent({
     addAnimal(animalId: string, animalName: string, animalType: string) {
       const newAnimals = [
         ...this.animals,
-        { id: animalId, name: animalName, type: animalType },
+        {
+          id: animalId,
+          name: animalName,
+          type: animalType,
+          created: new Date().getTime(),
+        },
       ];
 
       this.animals = newAnimals;
