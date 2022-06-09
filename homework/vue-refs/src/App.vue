@@ -1,11 +1,11 @@
 <template>
   <div class="wrapper">
     <h1>{{ titleFirst }}</h1>
-    <FirstComp @changeTitleFirst="changeTitleFirst" />
+    <FirstComp v-model="titleFirst" />
   </div>
   <div class="wrapper">
     <h1>{{ titleSecond }}</h1>
-    <SecondComp @inputValue="changeTitleSecond" />
+    <SecondComp v-model:title="titleSecond" />
   </div>
   <div class="wrapper">
     <ThirdComp @inputValue="setFirstColor" /> <ColorBox :color="colorFirst" />
@@ -28,8 +28,8 @@ export default defineComponent({
   name: "App",
   data() {
     return {
-      titleFirst: "Title First",
-      titleSecond: "Title Second",
+      titleFirst: "",
+      titleSecond: "",
       colorFirst: "blue",
       colorSecond: "blue",
     };
@@ -42,12 +42,6 @@ export default defineComponent({
     ColorBox,
   },
   methods: {
-    changeTitleFirst(title: string) {
-      this.titleFirst = title;
-    },
-    changeTitleSecond(title: string) {
-      this.titleSecond = title;
-    },
     setFirstColor(color: string) {
       this.colorFirst = color;
     },

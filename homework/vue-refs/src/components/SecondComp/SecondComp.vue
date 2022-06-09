@@ -1,10 +1,5 @@
 <template>
-  <input
-    type="text"
-    placeholder="Update title..."
-    v-model="inputValue"
-    v-on:input="handleChange"
-  />
+  <input type="text" placeholder="Update title..." v-model="value123" />
 </template>
 
 <script lang="ts">
@@ -12,14 +7,16 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "SecondComp",
-  data() {
-    return {
-      inputValue: "",
-    };
-  },
-  methods: {
-    handleChange() {
-      this.$emit("inputValue", this.inputValue);
+  props: ["title"],
+  emits: ["update:title"],
+  computed: {
+    value123: {
+      get() {
+        return this.title;
+      },
+      set(value: string) {
+        this.$emit("update:title", value);
+      },
     },
   },
 });

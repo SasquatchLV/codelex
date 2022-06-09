@@ -1,6 +1,11 @@
 <template>
   <form @submit.prevent @submit="submitHandler">
-    <input type="text" placeholder="Update title..." v-model="inputValue" />
+    <input
+      :value="modelValue"
+      type="text"
+      placeholder="Update title..."
+      ref="input"
+    />
     <button type="submit">Change</button>
   </form>
 </template>
@@ -10,15 +15,15 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   name: "FirstComp",
-  data() {
-    return {
-      inputValue: "",
-    };
-  },
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
+
   methods: {
     submitHandler() {
-      this.$emit("changeTitleFirst", this.inputValue);
-      this.inputValue = "";
+      this.$emit(
+        "update:modelValue",
+        (this.$refs.input as HTMLInputElement).value
+      );
     },
   },
 });
