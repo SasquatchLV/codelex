@@ -17,7 +17,7 @@
       </div>
       <div class="col-2">
         <div
-          class="btn-group-vertical sticky-top pt-5"
+          class="btn-group-vertical sticky-top"
           role="group"
           aria-label="Basic example"
         >
@@ -138,5 +138,9 @@ export default defineComponent({
   &:hover {
     background-color: #f5f5f5;
   }
+}
+
+.sticky-top {
+  top: 100px;
 }
 </style>

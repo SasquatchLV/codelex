@@ -14,6 +14,8 @@ type JokeType = {
   message: string;
   setup?: string;
   delivery?: string;
+  jokes: JokeType[];
+  error: boolean;
 };
 
 export const moduleJokes = {
@@ -48,8 +50,7 @@ export const moduleJokes = {
         });
     },
 
-    prepareJokesForCommiting({ commit }: { commit: Commit }, data: any) {
-      console.log(data);
+    prepareJokesForCommiting({ commit }: { commit: Commit }, data: JokeType) {
       let { jokes } = data;
       let errorMsg = "";
       const { error, message } = data;
