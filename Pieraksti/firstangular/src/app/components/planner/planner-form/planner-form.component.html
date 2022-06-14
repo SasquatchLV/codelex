@@ -1,0 +1,4 @@
+<form [formGroup]="plannerForm" (submit)="addTask()">
+  <input #taskInput formControlName="task" type="text" />
+  <button type="submit">Add</button>
+</form>
