@@ -6,12 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'firstangular';
-  showTitle = false;
-
-  toggleShowTitle(): void {
-    this.showTitle = !this.showTitle;
-  }
+  title = 'My Joke App';
 }
-
-

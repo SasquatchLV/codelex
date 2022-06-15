@@ -1,5 +1,7 @@
 <div>
-<app-planner-card
-
-></app-planner-card>
+  <app-planner-card
+    *ngFor="let task of tasks; let i = index"
+    [task]="task"
+    (deleteTaskEvent)="deleteTask(i)"
+  ></app-planner-card>
 </div>

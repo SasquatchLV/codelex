@@ -7,6 +7,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Task } from '../../../models/task.model';
 
 @Component({
   selector: 'app-planner-form',
@@ -16,7 +17,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PlannerFormComponent implements OnInit {
   @ViewChild('taskInput', { static: true }) taskInput: ElementRef | undefined;
 
-  @Output() addTaskEvent = new EventEmitter<string>();
+  @Output() addTaskEvent = new EventEmitter<Task>();
   plannerForm: FormGroup = this.fb.group({});
 
   constructor(private fb: FormBuilder) {}
@@ -29,7 +30,7 @@ export class PlannerFormComponent implements OnInit {
   addTask(): void {
     this.plannerForm.markAllAsTouched();
     if (this.plannerForm.valid) {
-      this.addTaskEvent.emit(this.plannerForm.value.task);
+      this.addTaskEvent.emit(this.plannerForm.value);
       this.plannerForm.reset();
       this.taskInput?.nativeElement.focus();
     }
@@ -37,8 +38,8 @@ export class PlannerFormComponent implements OnInit {
 
   buildForm(): void {
     this.plannerForm = this.fb.group({
-      task: ['', [Validators.required]],
-      age: [''],
+      question: ['', Validators.required],
+      answer: ['', Validators.required],
     });
   }
 }

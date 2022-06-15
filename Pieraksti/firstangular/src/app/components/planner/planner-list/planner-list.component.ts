@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Task } from '../../../models/task.model';
 
 @Component({
   selector: 'app-planner-list',
@@ -6,5 +7,12 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./planner-list.component.scss'],
 })
 export class PlannerListComponent {
-  @Input() tasks: string[] | undefined;
+  @Input()
+  tasks?: Task[];
+
+  @Output() deleteTaskEvent = new EventEmitter<number>();
+
+  deleteTask(index: number): void {
+    this.deleteTaskEvent.emit(index);
+  }
 }

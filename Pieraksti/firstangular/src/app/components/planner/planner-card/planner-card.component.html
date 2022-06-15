@@ -1,4 +1,8 @@
 <div>
-  <span>{{ task }}</span>
-  <button>X</button>
+  <span>{{ task?.question }}</span>
+  <span *ngIf="showAnswer">{{ task?.answer }}</span>
+  <button (click)="toggleShowAnswer()">
+    {{ !showAnswer ? 'Tell me' : 'Hide' }}
+  </button>
+  <button (click)="deleteTask()">Delete</button>
 </div>
