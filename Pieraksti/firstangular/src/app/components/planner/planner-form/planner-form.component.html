@@ -1,19 +1,26 @@
-<form [formGroup]="plannerForm" (submit)="addTask()">
-  <label class="label" for="inputQuestion">Question</label>
+<form class="form" [formGroup]="plannerForm" (submit)="addTask()">
+  <label class="form-label" for="inputQuestion">Question</label>
   <input
     #taskInput
+    class="form-input"
+    id="inputQuestion"
     type="text"
     formControlName="question"
     placeholder="Enter the question"
   />
 
-  <label class="label" for="inputAnswer">Answer</label>
+  <label class="form-label" for="inputAnswer">Answer</label>
   <input
     #inputAnswer
+    class="form-input"
+    id="inputAnswer"
     type="text"
     formControlName="answer"
     placeholder="Enter the punchline"
   />
-
-  <button [disabled]="!plannerForm.valid" type="submit">Add</button>
+  <div class="div">
+    <button class="form-button" [disabled]="!plannerForm.valid" type="submit">
+      Create
+    </button>
+  </div>
 </form>
