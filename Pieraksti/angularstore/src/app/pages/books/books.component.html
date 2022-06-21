@@ -1,0 +1,15 @@
+<div *ngIf="books$ | async as books">
+  <div *ngFor="let book of books">
+    <p>
+      Title: {{ book.volumeInfo.title }} |
+      <span *ngFor="let author of book.volumeInfo.authors"
+        >Author: {{ author }}</span
+      >
+
+      <button (click)="removeBook(book.id)">Delete</button>
+    </p>
+  </div>
+</div>
+
+<div *ngIf="loading$ | async">Loading...</div>
+<div *ngIf="error$ | async as error">{{ error }}</div>
