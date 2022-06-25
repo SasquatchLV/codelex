@@ -1,4 +1,3 @@
-import runningSum from './runningSum';
 import lengthOfLastWord from './lengthOfLastWord';
 
 test('if returns a 4, because John is 4 characters', () => {
@@ -14,8 +13,10 @@ test('if cleans all the symbols and returns correct value', () => {
 test(
   'if the function returns a number',
   () => {
-    const response = lengthOfLastWord('My name is John');
-    expect(response).toBeInstanceOf(Number);
+    const response = lengthOfLastWord(
+      'My name is John and return value is number',
+    );
+    expect(typeof response).toBe('number');
   },
 );
 
